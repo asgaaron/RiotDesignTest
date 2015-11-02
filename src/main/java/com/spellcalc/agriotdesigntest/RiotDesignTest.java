@@ -26,6 +26,8 @@ public class RiotDesignTest
 	 * Create a program to calculate the most efficient spell in the game, given varying amounts of ability power,
 	 * attack damage, and cooldown reduction. Options to calculate highest damage single cast spell, as well as highest
 	 * DPS spell over a provided unit of time (seconds).
+	 *
+	 * @param args no args are used
 	 */
 	public static void main(String args[])
 	{
@@ -35,8 +37,8 @@ public class RiotDesignTest
 		DamageCalculator calculator = new DamageCalculator(spells);
 
 //		for dev purposes
-//		printSpells(spells);
-//		printProblemSpells(spells);
+		printSpells(spells, "spellList.txt");
+		printProblemSpells(spells);
 		final String options[] =
 		{
 			"Modify Bonus Attack Damage", "Modify Base Attack Damage", "Modify Ability Power",
@@ -126,7 +128,8 @@ public class RiotDesignTest
 	/**
 	 * Function will print out a list of champion spells to a text file, for dev purposes
 	 *
-	 * @param args
+	 * @param spells the list of spells to be printed
+	 * @param fileName name of the text file that will be produced
 	 */
 	public static void printSpells(List<ChampionSpell> spells, String fileName)
 	{
@@ -135,20 +138,21 @@ public class RiotDesignTest
 			FileWriter fileWriter
 				= new FileWriter(fileName);
 
-			BufferedWriter bufferedWriter
-				= new BufferedWriter(fileWriter);
-
 			// Note that write() does not automatically
 			// append a newline character.
-			for (ChampionSpell spell : spells)
+			try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
 			{
-				bufferedWriter.write(spell.toJSON());
-				bufferedWriter.newLine();
-				bufferedWriter.newLine();
-			}
+				// Note that write() does not automatically
+				// append a newline character.
+				for (ChampionSpell spell : spells)
+				{
+					bufferedWriter.write(spell.toJSON());
+					bufferedWriter.newLine();
+					bufferedWriter.newLine();
+				}
 
-			// Always close files.
-			bufferedWriter.close();
+				// Always close files.
+			}
 		}
 		catch (IOException ex)
 		{
