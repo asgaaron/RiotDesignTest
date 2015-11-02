@@ -2,34 +2,29 @@ package com.spellcalc.agriotdesigntest;
 
 import com.robrua.orianna.type.dto.staticdata.ChampionSpell;
 
-class Spell
-{
-	ChampionSpell spell;
-	double damage;
+class Spell {
 
-	public Spell(ChampionSpell spell, double damage)
-	{
-		this.spell = spell;
-		this.damage = damage;
-	}
+    ChampionSpell spell;
+    double damage;
 
-	ChampionSpell getSpell()
-	{
-		return spell;
-	}
+    public Spell(ChampionSpell spell, double damage) {
+        this.spell = spell;
+        this.damage = damage;
+    }
 
-	void setSpell(ChampionSpell spell)
-	{
-		this.spell = spell;
-	}
+    ChampionSpell getSpell() {
+        return spell;
+    }
 
-	double getDamage()
-	{
-		return damage;
-	}
+    void setSpell(ChampionSpell spell) {
+        this.spell = spell;
+    }
 
-	void setDamage(double damage)
-	{
-		this.damage = damage;
-	}
+    double getDamage() {
+        return damage;
+    }
+
+    void setDamage(double damage) {
+        this.damage = damage;
+    }
 }
