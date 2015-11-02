@@ -79,12 +79,14 @@ public class MainMenu
 			}
 			case 5:
 			{
-				calculator.calculateSingle();
+				Spell spell = calculator.calculateSingle();
+				System.out.println("With the provided stats, the highest damage single cast spell is: " + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
 				break;
 			}
 			case 6:
 			{
-				calculator.calculateDPS();
+				Spell spell = calculator.calculateDPS();
+				System.out.println("With the provided stats, the highest damage spell over 10 seconds is: " + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
 				break;
 			}
 			case 7:

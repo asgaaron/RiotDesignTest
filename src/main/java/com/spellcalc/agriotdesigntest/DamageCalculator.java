@@ -50,6 +50,7 @@ public class DamageCalculator
 
 			if (damage > highestDamage)
 			{
+				highestDamage = damage;
 				highest = spell;
 			}
 		}
@@ -57,7 +58,7 @@ public class DamageCalculator
 		return spell;
 	}
 
-	void calculateDPS()
+	Spell calculateDPS()
 	{
 		ChampionSpell highest = null;
 		double highestDPS = 0;
@@ -78,14 +79,16 @@ public class DamageCalculator
 						break;
 				}
 
-			double damageOverTen = damage * 10 / spell.getCooldown().get(spell.getMaxrank());
+			double damagePerTen = damage * 10 / spell.getCooldown().get(spell.getMaxrank());
 
-			if (damageOverTen > highestDPS)
+			if (damagePerTen > highestDPS)
 			{
+				highestDPS = damagePerTen;
 				highest = spell;
 			}
 		}
-		throw new UnsupportedOperationException("Not supported yet.");
+		Spell spell = new Spell(highest, highestDPS);
+		return spell;
 	}
 
 	/**
