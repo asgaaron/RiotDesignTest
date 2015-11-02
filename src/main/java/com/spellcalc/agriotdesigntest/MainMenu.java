@@ -16,10 +16,9 @@ public class MainMenu {
      */
     void displayOptions() throws IOException {
 
-        for (int i = 0; i < options.length; i++) {
-            System.out.println(i + ": " + options[i]);
+        for (int i = 1; i <= options.length; i++) {
+            System.out.println(i + ": " + options[i-1]);
         }
-        getInput();
     }
 
     /**

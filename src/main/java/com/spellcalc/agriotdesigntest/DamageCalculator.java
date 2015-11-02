@@ -31,18 +31,27 @@ public class DamageCalculator {
         ChampionSpell highest = null;
         double highestDamage = 0;
         for (ChampionSpell spell : spells) {
-            double damage = spell.getEffect().get(1).get(spell.getMaxrank());
-            for (SpellVars var : spell.getVars()) {
-                switch (var.getLink()) {
-                    case "spelldamage":
-                        damage += spell.getVars().get(1).getCoeff().get(0) * abilityPower;
-                        break;
-                    case "attackdamage":
-                        damage += spell.getVars().get(1).getCoeff().get(0) * (baseAD + bonusAD);
-                        break;
-                    case "bonusattackdamage":
-                        damage += spell.getVars().get(1).getCoeff().get(0) * bonusAD;
-                        break;
+            double damage = 0;
+            if (null == spell.getEffect()) {
+                System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have an effect field...results may be skewed!");
+            } else if (spell.getEffect().get(1) == null) {
+                System.out.println("This effect list is blank, add it to the problem spells!");
+            } else {
+                damage = spell.getEffect().get(1).get(spell.getMaxrank() - 1);
+            }
+            if (null != spell.getVars()) {
+                for (SpellVars var : spell.getVars()) {
+                    switch (var.getLink()) {
+                        case "spelldamage":
+                            damage += spell.getVars().get(0).getCoeff().get(0) * abilityPower;
+                            break;
+                        case "attackdamage":
+                            damage += spell.getVars().get(0).getCoeff().get(0) * (baseAD + bonusAD);
+                            break;
+                        case "bonusattackdamage":
+                            damage += spell.getVars().get(0).getCoeff().get(0) * bonusAD;
+                            break;
+                    }
                 }
             }
 
@@ -59,17 +68,17 @@ public class DamageCalculator {
         ChampionSpell highest = null;
         double highestDPS = 0;
         for (ChampionSpell spell : spells) {
-            double damage = spell.getEffect().get(1).get(spell.getMaxrank());
-            if (null != spell.getVars().get(1).getLink()) {
-                switch (spell.getVars().get(1).getLink()) {
+            double damage = spell.getEffect().get(0).get(spell.getMaxrank() - 1);
+            if (null != spell.getVars().get(0).getLink()) {
+                switch (spell.getVars().get(0).getLink()) {
                     case "spelldamage":
-                        damage += spell.getVars().get(1).getCoeff().get(0) * abilityPower;
+                        damage += spell.getVars().get(0).getCoeff().get(0) * abilityPower;
                         break;
                     case "attackdamage":
-                        damage += spell.getVars().get(1).getCoeff().get(0) * (baseAD + bonusAD);
+                        damage += spell.getVars().get(0).getCoeff().get(0) * (baseAD + bonusAD);
                         break;
                     case "bonusattackdamage":
-                        damage += spell.getVars().get(1).getCoeff().get(0) * bonusAD;
+                        damage += spell.getVars().get(0).getCoeff().get(0) * bonusAD;
                         break;
                 }
             }
@@ -109,7 +118,7 @@ public class DamageCalculator {
     /**
      * @param attackDamage the baseAD to set
      */
-    public void setAttackDamage(double attackDamage) {
+    public void setBaseAD(double attackDamage) {
         this.baseAD = attackDamage;
     }
 
