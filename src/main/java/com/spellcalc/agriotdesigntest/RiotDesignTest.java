@@ -31,8 +31,10 @@ public class RiotDesignTest
 		SetupAPI();
 		List<ChampionSpell> spells = getSpellList();
 		spells = removeNonDamageSpells(spells);
-		//for dev purposes
+
+//		for dev purposes
 //		printSpells(spells);
+//		printProblemSpells(spells);
 		String options[] =
 		{
 			"Modify Bonus Attack Damage", "Modify Base Attack Damage", "Modify Ability Power", "Modify Cooldown Reduction", "Calculate highest single cast damage", "Calculate highest DPS spell over 10 seconds", "Exit"
@@ -57,11 +59,8 @@ public class RiotDesignTest
 	 *
 	 * @param args
 	 */
-	public static void printSpells(List<ChampionSpell> spells)
+	public static void printSpells(List<ChampionSpell> spells, String fileName)
 	{
-		// The name of the file to open.
-		String fileName = "spellList.txt";
-
 		try
 		{
 			FileWriter fileWriter
@@ -158,5 +157,22 @@ public class RiotDesignTest
 			spells.addAll(champion.getSpells());
 		}
 		return spells;
+	}
+
+	/**
+	 * Function that will print all damaging spells that don't calculate their damage using e1 + a1
+	 *
+	 * @param spells
+	 */
+	public static void printProblemSpells(List<ChampionSpell> spells)
+	{
+		for (ChampionSpell spell : spells)
+		{
+			if (spell.getSanitizedTooltip().contains("{{ e1 }} (+{{ a1 }})"))
+			{
+				spells.remove(spell);
+			}
+		}
+		printSpells(spells, "problemSpells.txt");
 	}
 }
