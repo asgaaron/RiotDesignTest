@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,11 +33,21 @@ public class RiotDesignTest
 		spells = removeNonDamageSpells(spells);
 		//for dev purposes
 //		printSpells(spells);
-		MainMenu menu = new MainMenu(spells);
-		menu.displayOptions();
+		String options[] =
+		{
+			"Modify Bonus Attack Damage", "Modify Base Attack Damage", "Modify Ability Power", "Modify Cooldown Reduction", "Calculate highest single cast damage", "Calculate highest DPS spell over 10 seconds", "Exit"
+		};
+		MainMenu menu = new MainMenu(spells, options);
 		while (true)
 		{
-			menu.displayOptions();
+			try
+			{
+				menu.displayOptions();
+			}
+			catch (IOException ex)
+			{
+				Logger.getLogger(RiotDesignTest.class.getName()).log(Level.SEVERE, "UH OH GUY", ex);
+			}
 		}
 
 	}

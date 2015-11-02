@@ -1,6 +1,8 @@
 package com.spellcalc.agriotdesigntest;
 
 import com.robrua.orianna.type.dto.staticdata.ChampionSpell;
+import com.robrua.orianna.type.dto.staticdata.SpellVars;
+import java.io.IOException;
 import java.util.List;
 
 public class DamageCalculator
@@ -19,15 +21,21 @@ public class DamageCalculator
 		bonusAD = 0;
 	}
 
-	Spell calculateSingle()
+	/**
+	 * Function that calculates the highest damage single cast spell at the given levels of AD and AP
+	 *
+	 * @return Spell spell - a wrapper containing the ChampionSpell and its damage
+	 * @throws IOException
+	 */
+	Spell calculateSingle() throws IOException
 	{
 		ChampionSpell highest = null;
 		double highestDamage = 0;
 		for (ChampionSpell spell : spells)
 		{
 			double damage = spell.getEffect().get(1).get(spell.getMaxrank());
-			if (null != spell.getVars().get(1).getLink())
-				switch (spell.getVars().get(1).getLink())
+			for (SpellVars var : spell.getVars())
+				switch (var.getLink())
 				{
 					case "spelldamage":
 						damage += spell.getVars().get(1).getCoeff().get(0) * abilityPower;
@@ -168,35 +176,4 @@ public class DamageCalculator
 		return baseAD + bonusAD;
 	}
 
-	private static class Spell
-	{
-		ChampionSpell spell;
-		double damage;
-
-		public Spell(ChampionSpell spell, double damage)
-		{
-			this.spell = spell;
-			this.damage = damage;
-		}
-
-		ChampionSpell getSpell()
-		{
-			return spell;
-		}
-
-		void setSpell(ChampionSpell spell)
-		{
-			this.spell = spell;
-		}
-
-		double getDamage()
-		{
-			return damage;
-		}
-
-		void setDamage(double damage)
-		{
-			this.damage = damage;
-		}
-	}
 }

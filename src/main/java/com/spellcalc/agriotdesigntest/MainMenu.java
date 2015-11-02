@@ -1,6 +1,7 @@
 package com.spellcalc.agriotdesigntest;
 
 import com.robrua.orianna.type.dto.staticdata.ChampionSpell;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,27 +10,18 @@ public class MainMenu
 
 	DamageCalculator calculator;
 
-	String options[]
-		=
-		{
-			"Modify Bonus Attack Damage",
-			"Modify Base Attack Damage",
-			"Modify Ability Power",
-			"Modify Cooldown Reduction",
-			"Calculate highest single cast damage",
-			"Calculate highest DPS spell",
-			"Exit"
-		};
+	String options[];
 
-	MainMenu(List<ChampionSpell> spells)
+	MainMenu(List<ChampionSpell> spells, String[] options)
 	{
+		this.options = options;
 		calculator = new DamageCalculator(spells);
 	}
 
 	/**
 	 * Function to display all of the options to the user, then asks for input
 	 */
-	void displayOptions()
+	void displayOptions() throws IOException
 	{
 		System.out.println("\nCurrent Stats:" + calculator.getBonusAD() + " Bonus Attack Damage, " + calculator.getBaseAD()
 			+ " Base Attack Damage, " + calculator.getAbilityPower() + " Ability Power, " + calculator.getcDR() + "% Cooldown Reduction");
@@ -44,7 +36,7 @@ public class MainMenu
 	 * Function to get input from the user, then does an action based off the user's input
 	 *
 	 */
-	void getInput()
+	void getInput() throws IOException
 	{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please enter an option: ");
