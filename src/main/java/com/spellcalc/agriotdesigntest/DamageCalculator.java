@@ -30,15 +30,19 @@ public class DamageCalculator {
     Spell calculateSingle() throws IOException {
         ChampionSpell highest = null;
         double highestDamage = 0;
+        
+        //parse through sanitized tooltip to find base damage
         for (ChampionSpell spell : spells) {
             double damage = 0;
             if (null == spell.getEffect()) {
                 System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have an effect field...results may be skewed!");
             } else if (spell.getEffect().get(1) == null) {
-                System.out.println("This effect list is blank, add it to the problem spells!");
+                System.out.println(spell.getName() + "'s effect list is blank, add it to the problem spells!");
             } else {
                 damage = spell.getEffect().get(1).get(spell.getMaxrank() - 1);
             }
+            
+            //add scaling damage
             if (null != spell.getVars()) {
                 for (SpellVars var : spell.getVars()) {
                     switch (var.getLink()) {
