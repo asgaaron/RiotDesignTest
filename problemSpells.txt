@@ -1,148 +1,5 @@
 {
   "cooldown": [
-    0.5,
-    0.5,
-    0.5,
-    0.5,
-    0.5
-  ],
-  "cooldownBurn": "0.5",
-  "costBurn": "0",
-  "costType": "NoCost",
-  "name": "Blood Thirst / Blood Price",
-  "rangeBurn": "self",
-  "resource": "No Cost",
-  "cost": [
-    0,
-    0,
-    0,
-    0,
-    0
-  ],
-  "dbId": 0,
-  "description": "While toggled on Aatrox deals bonus damage every third subsequent attack at the expense of his own Health. While toggled off Aatrox restores Health every third subsequent attack.",
-  "sanitizedDescription": "While toggled on Aatrox deals bonus damage every third subsequent attack at the expense of his own Health. While toggled off Aatrox restores Health every third subsequent attack.",
-  "sanitizedTooltip": "While toggled off Aatrox benefits from Blood Thirst, while toggled on Blood Price is activated and removes Blood Thirst. Blood Thirst: Every third attack, Aatrox restores {{ e3 }} (+{{ a1 }}) Health, increased by {{ e1 }}% ({{ f5 }}) when below half Health. Blood Price: Every third attack, Aatrox deals {{ e2 }} (+{{ a2 }}) bonus physical damage and loses {{ f4 }} Health.",
-  "tooltip": "While toggled off Aatrox benefits from Blood Thirst, while toggled on Blood Price is activated and removes Blood Thirst.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eBlood Thirst: \u003c/span\u003eEvery third attack, Aatrox restores {{ e3 }}\u003cspan class\u003d\"colorF88017\"\u003e (+{{ a1 }})\u003c/span\u003e Health, increased by {{ e1 }}% ({{ f5 }}) when below half Health.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eBlood Price: \u003c/span\u003eEvery third attack, Aatrox deals {{ e2 }}\u003cspan class\u003d\"colorF88017\"\u003e (+{{ a2 }})\u003c/span\u003e \u003c/span\u003ebonus physical damage and loses \u003cspan class\u003d\"colorCC3300\"\u003e{{ f4 }}\u003c/span\u003e Health.",
-  "effect": [
-    {
-      "dbId": 0
-    },
-    {
-      "dbId": 0,
-      "list": [
-        200.0,
-        200.0,
-        200.0,
-        200.0,
-        200.0
-      ]
-    },
-    {
-      "dbId": 0,
-      "list": [
-        60.0,
-        95.0,
-        130.0,
-        165.0,
-        200.0
-      ]
-    },
-    {
-      "dbId": 0,
-      "list": [
-        20.0,
-        25.0,
-        30.0,
-        35.0,
-        40.0
-      ]
-    },
-    {
-      "dbId": 0,
-      "list": [
-        25.0,
-        25.0,
-        25.0,
-        25.0,
-        25.0
-      ]
-    },
-    {
-      "dbId": 0,
-      "list": [
-        50.0,
-        50.0,
-        50.0,
-        50.0,
-        50.0
-      ]
-    },
-    {
-      "dbId": 0,
-      "list": [
-        0.5,
-        0.5,
-        0.5,
-        0.5,
-        0.5
-      ]
-    }
-  ],
-  "effectBurn": [
-    "",
-    "200",
-    "60/95/130/165/200",
-    "20/25/30/35/40",
-    "25",
-    "50",
-    "0.5"
-  ],
-  "image": {
-    "dbId": 0,
-    "full": "AatroxW.png",
-    "sprite": "spell0.png",
-    "group": "spell",
-    "h": 48,
-    "w": 48,
-    "x": 240,
-    "y": 48
-  },
-  "key": "AatroxW",
-  "leveltip": {
-    "dbId": 0,
-    "effect": [
-      "{{ e3 }} -\u003e {{ e3NL }}",
-      "{{ e2 }} -\u003e {{ e2NL }}"
-    ],
-    "label": [
-      "Heal",
-      "Bonus Damage"
-    ]
-  },
-  "maxrank": 5,
-  "vars": [
-    {
-      "coeff": [
-        0.25
-      ],
-      "dbId": 0,
-      "link": "bonusattackdamage",
-      "key": "a1"
-    },
-    {
-      "coeff": [
-        1.0
-      ],
-      "dbId": 0,
-      "link": "bonusattackdamage",
-      "key": "a2"
-    }
-  ]
-}
-
-{
-  "cooldown": [
     100.0,
     85.0,
     70.0
@@ -1211,6 +1068,117 @@
 
 {
   "cooldown": [
+    4.0,
+    4.0,
+    4.0,
+    4.0,
+    4.0
+  ],
+  "cooldownBurn": "4",
+  "costBurn": "40",
+  "costType": "Mana",
+  "name": "Overload",
+  "rangeBurn": "900",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    40,
+    40,
+    40,
+    40,
+    40
+  ],
+  "dbId": 0,
+  "description": "Ryze throws a charge of pure energy in a line, dealing damage to the first enemy struck. Additionally, Arcane Mastery\u0027s supercharged duration is passively increased.",
+  "sanitizedDescription": "Ryze throws a charge of pure energy in a line, dealing damage to the first enemy struck. Additionally, Arcane Mastery\u0027s supercharged duration is passively increased.",
+  "sanitizedTooltip": "Passive: Arcane Mastery\u0027s supercharged duration is increased to {{ e3 }} seconds. Active: Fires an orb, dealing {{ e1 }} (+{{ a1 }}) (+{{ f1 }}) magic damage to the first target hit.",
+  "tooltip": "\u003cspan class\u003d\"colorFF9900\"\u003ePassive: \u003c/span\u003eArcane Mastery\u0027s supercharged duration is increased to {{ e3 }} seconds.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eActive: \u003c/span\u003eFires an orb, dealing {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e \u003cspan class\u003d\"color44DDFF\"\u003e(+{{ f1 }})\u003c/span\u003e magic damage to the first target hit.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        60.0,
+        85.0,
+        110.0,
+        135.0,
+        160.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "60/85/110/135/160",
+    "2/2.5/3/3.5/4",
+    "3/3.5/4/4.5/5"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "RyzeQ.png",
+    "sprite": "spell13.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 432,
+    "y": 96
+  },
+  "key": "RyzeQ",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}%",
+      "{{ e3 }} -\u003e {{ e3NL }}"
+    ],
+    "label": [
+      "Damage",
+      "Mana Ratio",
+      "Arcane Mastery Supercharged Duration"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    900,
+    900,
+    900,
+    900,
+    900
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.55
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     14.0,
     14.0,
     14.0,
@@ -1316,6 +1284,158 @@
       "dbId": 0,
       "link": "spelldamage",
       "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    7.0,
+    7.0,
+    7.0,
+    7.0,
+    7.0
+  ],
+  "cooldownBurn": "7",
+  "costBurn": "60/70/80/90/100",
+  "costType": "Mana",
+  "name": "Spell Flux",
+  "rangeBurn": "600",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    60,
+    70,
+    80,
+    90,
+    100
+  ],
+  "dbId": 0,
+  "description": "Ryze releases an orb of pure magical power that bounces from the initial target to nearby enemies and Ryze before bouncing back to the initial target. Enemies hit are damaged and have their Magic Resist reduced.",
+  "sanitizedDescription": "Ryze releases an orb of pure magical power that bounces from the initial target to nearby enemies and Ryze before bouncing back to the initial target. Enemies hit are damaged and have their Magic Resist reduced.",
+  "sanitizedTooltip": "Unleashes an orb that deals {{ e1 }} (+{{ a1 }}) (+{{ f1 }}) magic damage and reduces the Magic Resist of its target by {{ e2 }}% for 5 seconds, stacking up to 3 times. After hitting, Spell Flux bounces to nearby enemies and Ryze (up to {{ e6 }} secondary targets) before returning to the original target. Instances of damage on the original target after the first deal {{ e3 }} (+{{ a2 }}) (+{{ f2 }}) damage.",
+  "tooltip": "Unleashes an orb that deals {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e \u003cspan class\u003d\"color44DDFF\"\u003e(+{{ f1 }})\u003c/span\u003e magic damage and reduces the Magic Resist of its target by {{ e2 }}% for 5 seconds, stacking up to 3 times.\u003cbr\u003e\u003cbr\u003eAfter hitting, Spell Flux bounces to nearby enemies and Ryze (up to {{ e6 }} secondary targets) before returning to the original target. Instances of damage on the original target after the first deal {{ e3 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e \u003cspan class\u003d\"color44DDFF\"\u003e(+{{ f2 }})\u003c/span\u003e damage.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        36.0,
+        52.0,
+        68.0,
+        84.0,
+        100.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        8.0,
+        9.0,
+        10.0,
+        11.0,
+        12.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        18.0,
+        26.0,
+        34.0,
+        42.0,
+        50.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "36/52/68/84/100",
+    "8/9/10/11/12",
+    "18/26/34/42/50",
+    "2",
+    "1",
+    "6"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "RyzeE.png",
+    "sprite": "spell13.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 48,
+    "y": 144
+  },
+  "key": "RyzeE",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}%",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Magic Resist Reduction",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    600,
+    600,
+    600,
+    600,
+    600
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.1
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
     }
   ]
 }
@@ -1501,6 +1621,177 @@
       "dbId": 0,
       "link": "attackdamage",
       "key": "f2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    13.0,
+    13.0,
+    13.0,
+    13.0,
+    13.0
+  ],
+  "cooldownBurn": "13",
+  "costBurn": "65/70/75/80/85",
+  "costType": "Mana",
+  "name": "Soul Furnace",
+  "rangeBurn": "self",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    65,
+    70,
+    75,
+    80,
+    85
+  ],
+  "dbId": 0,
+  "description": "Sion shields himself and can reactivate after 3 seconds to deal Magic Damage to enemies nearby. When Sion kills enemies, he passively gains maximum Health.",
+  "sanitizedDescription": "Sion shields himself and can reactivate after 3 seconds to deal Magic Damage to enemies nearby. When Sion kills enemies, he passively gains maximum Health.",
+  "sanitizedTooltip": "Passive: Sion gains {{ e5 }} maximum Health whenever he kills a unit ({{ e6 }} for large monster and champion kill or assist). Current Bonus: {{ f1 }} Active: Sion shields himself for {{ e1 }} (+{{ a1 }}) (+{{ f2 }}) ({{ e3 }}% of maximum Health) for 6 seconds. After {{ e7 }} seconds, while the shield holds, Sion can reactivate to deal {{ e2 }} (+{{ a1 }}) plus {{ e4 }}% of the target\u0027s maximum Health as magic damage to enemies around himself. Max 400 bonus damage against minions and monsters.",
+  "tooltip": "\u003cspan class\u003d\"colorFFE076\"\u003ePassive:\u003c/span\u003e Sion gains {{ e5 }} maximum Health whenever he kills a unit ({{ e6 }} for large monster and champion kill or assist). \u003cspan class\u003d\"colorFF3300\"\u003eCurrent Bonus: {{ f1 }} \u003c/span\u003e\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFFE076\"\u003eActive:\u003c/span\u003e Sion shields himself for {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e \u003cspan class\u003d\"colorFF3300\"\u003e(+{{ f2 }})\u003c/span\u003e ({{ e3 }}% of maximum Health) for 6 seconds. After {{ e7 }} seconds, while the shield holds, Sion can reactivate to deal {{ e2 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e plus {{ e4 }}% of the target\u0027s maximum Health as magic damage to enemies around himself. Max 400 bonus damage against minions and monsters.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        30.0,
+        55.0,
+        80.0,
+        105.0,
+        130.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        40.0,
+        65.0,
+        90.0,
+        115.0,
+        140.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        7.0,
+        8.0,
+        9.0,
+        10.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        11.0,
+        12.0,
+        13.0,
+        14.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "30/55/80/105/130",
+    "40/65/90/115/140",
+    "6/7/8/9/10",
+    "10/11/12/13/14",
+    "2",
+    "10",
+    "3",
+    "10"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "SionW.png",
+    "sprite": "spell9.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 384,
+    "y": 144
+  },
+  "key": "SionW",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ e4 }}% -\u003e {{ e4NL }}%",
+      "{{ e3 }}% -\u003e {{ e3NL }}%",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Shield Amount",
+      "Damage",
+      "Max Health Damage",
+      "Max Health Shield Ratio",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "vars": [
+    {
+      "coeff": [
+        0.1
+      ],
+      "dbId": 0,
+      "link": "health",
+      "key": "f1"
+    },
+    {
+      "coeff": [
+        0.4
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
     }
   ]
 }
@@ -1768,6 +2059,162 @@
 }
 
 {
+  "altimages": [
+    {
+      "dbId": 0,
+      "full": "KarmaSolKimShield0.png",
+      "sprite": "spell13.png",
+      "group": "spell",
+      "h": 48,
+      "w": 48,
+      "x": 288,
+      "y": 96
+    }
+  ],
+  "cooldown": [
+    10.0,
+    9.5,
+    9.0,
+    8.5,
+    8.0
+  ],
+  "cooldownBurn": "10/9.5/9/8.5/8",
+  "costBurn": "60/65/70/75/80",
+  "costType": "Mana",
+  "name": "Inspire",
+  "rangeBurn": "800",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    60,
+    65,
+    70,
+    75,
+    80
+  ],
+  "dbId": 0,
+  "description": "Karma summons a protective shield that absorbs incoming damage and increases the Movement Speed of the protected ally.\u003cbr\u003e\u003cbr\u003eMantra Bonus: Energy radiates out from her target, strengthening the initial shield and applying Inspire to nearby allied champions.",
+  "sanitizedDescription": "Karma summons a protective shield that absorbs incoming damage and increases the Movement Speed of the protected ally. Mantra Bonus: Energy radiates out from her target, strengthening the initial shield and applying Inspire to nearby allied champions.",
+  "sanitizedTooltip": "Target ally gains a shield, granting {{ e3 }}% Movement Speed for {{ e2 }} seconds and absorbing {{ e1 }} (+{{ a1 }}) damage for {{ e4 }} seconds. Mantra Bonus - Defiance: The shield overflows with energy, absorbing an additional {{ f1 }} (+{{ a2 }}) for Karma\u0027s target. Allied champions around her target gain shields that absorb up to {{ f2 }}% as much as the initial target\u0027s shield. All champions shielded by Defiance gain {{ f3 }}% movement speed for {{ e2 }} seconds.",
+  "tooltip": "Target ally gains a shield, granting {{ e3 }}% Movement Speed for {{ e2 }} seconds and absorbing {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e damage for {{ e4 }} seconds.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eMantra Bonus - Defiance:\u003c/span\u003e The shield overflows with energy, absorbing an additional {{ f1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e for Karma\u0027s target. Allied champions around her target gain shields that absorb up to {{ f2 }}% as much as the initial target\u0027s shield. All champions shielded by Defiance gain {{ f3 }}% movement speed for {{ e2 }} seconds.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        80.0,
+        110.0,
+        140.0,
+        170.0,
+        200.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        40.0,
+        45.0,
+        50.0,
+        55.0,
+        60.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "80/110/140/170/200",
+    "1.5",
+    "40/45/50/55/60",
+    "4"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "KarmaSolKimShield.png",
+    "sprite": "spell4.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 240,
+    "y": 144
+  },
+  "key": "KarmaSolKimShield",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e3 }}% -\u003e {{ e3NL }}%",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage Absorption",
+      "Movement Speed",
+      "Cooldown",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    800,
+    800,
+    800,
+    800,
+    800
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.5
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        60.0,
+        140.0,
+        220.0,
+        300.0
+      ],
+      "dbId": 0,
+      "link": "@text",
+      "ranksWith": "KarmaMantra",
+      "key": "f1"
+    },
+    {
+      "coeff": [
+        0.3
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
   "cooldown": [
     18.0,
     18.0,
@@ -1955,6 +2402,104 @@
       ],
       "dbId": 0,
       "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    12.0,
+    11.0,
+    10.0,
+    9.0,
+    8.0
+  ],
+  "cooldownBurn": "12/11/10/9/8",
+  "costBurn": "0",
+  "costType": "Health",
+  "name": "Reckless Swing",
+  "rangeBurn": "325",
+  "resource": " Health",
+  "cost": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "dbId": 0,
+  "description": "Olaf attacks with such force that it deals true damage to his target and himself, refunding the Health cost if he destroys the target.",
+  "sanitizedDescription": "Olaf attacks with such force that it deals true damage to his target and himself, refunding the Health cost if he destroys the target.",
+  "sanitizedTooltip": "Olaf ferociously swings his axes, dealing {{ e1 }} (+{{ a1 }}) true damage to his target. This ability\u0027s cost is equal to {{ e2 }}% of the total damage dealt, but the cost is refunded if it kills the target. Basic attacks lower the cooldown of Reckless Swing by 1 second.",
+  "tooltip": "Olaf ferociously swings his axes, dealing {{ e1 }} \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ a1 }})\u003c/span\u003e true damage to his target. This ability\u0027s cost is equal to {{ e2 }}% of the total damage dealt, but the cost is refunded if it kills the target.\u003cbr\u003e\u003cbr\u003eBasic attacks lower the cooldown of Reckless Swing by 1 second.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        70.0,
+        115.0,
+        160.0,
+        205.0,
+        250.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        30.0,
+        30.0,
+        30.0,
+        30.0,
+        30.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "70/115/160/205/250",
+    "30"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "OlafRecklessStrike.png",
+    "sprite": "spell8.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 336,
+    "y": 0
+  },
+  "key": "OlafRecklessStrike",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Base Damage",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    325,
+    325,
+    325,
+    325,
+    325
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.4
+      ],
+      "dbId": 0,
+      "link": "attackdamage",
       "key": "a1"
     }
   ]
@@ -2381,6 +2926,230 @@
 
 {
   "cooldown": [
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0
+  ],
+  "cooldownBurn": "10",
+  "costBurn": "100/110/120/130/140",
+  "costType": "Mana",
+  "name": "Fling",
+  "rangeBurn": "125",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    100,
+    110,
+    120,
+    130,
+    140
+  ],
+  "dbId": 0,
+  "description": "Damages target enemy unit and flings them into the air behind Singed. If the target Singed flings lands in his Mega Adhesive, they are also rooted.",
+  "sanitizedDescription": "Damages target enemy unit and flings them into the air behind Singed. If the target Singed flings lands in his Mega Adhesive, they are also rooted.",
+  "sanitizedTooltip": "Singed flings an enemy over his shoulder, dealing {{ e1 }} (+{{ a1 }}) plus {{ e3 }}% of the target\u0027s maximum Health as magic damage. Max 300 bonus damage against minions and monsters. If the target Singed flings lands in his Mega Adhesive, they are also rooted for {{ e2 }} seconds.",
+  "tooltip": "Singed flings an enemy over his shoulder, dealing {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e plus {{ e3 }}% of the target\u0027s maximum Health as magic damage. Max 300 bonus damage against minions and monsters.\u003cbr\u003e\u003cbr\u003eIf the target Singed flings lands in his Mega Adhesive, they are also rooted for {{ e2 }} seconds.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        50.0,
+        65.0,
+        80.0,
+        95.0,
+        110.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.0,
+        1.25,
+        1.5,
+        1.75,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        8.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "50/65/80/95/110",
+    "1/1.25/1.5/1.75/2",
+    "6/6.5/7/7.5/8"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "Fling.png",
+    "sprite": "spell9.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 240,
+    "y": 144
+  },
+  "key": "Fling",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e3 }} -\u003e {{ e3NL }}",
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Max Health Damage",
+      "Root Duration",
+      "Mana Cost "
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    125,
+    125,
+    125,
+    125,
+    125
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.75
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    13.0,
+    12.0,
+    11.0,
+    10.0,
+    9.0
+  ],
+  "cooldownBurn": "13/12/11/10/9",
+  "costBurn": "75",
+  "costType": "Mana",
+  "name": "Twisted Advance",
+  "rangeBurn": "525",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    75,
+    75,
+    75,
+    75,
+    75
+  ],
+  "dbId": 0,
+  "description": "Maokai dissolves into a cloud of arcane energies. He regrows near a target enemy, dealing damage and rooting it in place.",
+  "sanitizedDescription": "Maokai dissolves into a cloud of arcane energies. He regrows near a target enemy, dealing damage and rooting it in place.",
+  "sanitizedTooltip": "Maokai transforms into a cloud of arcane energy that quickly travels to a target enemy, roots it for {{ e2 }} second(s) and deals {{ e1 }} (+{{ a1 }})% of the target\u0027s maximum health as magic damage (Max: {{ e3 }} to minions and monsters).",
+  "tooltip": "Maokai transforms into a cloud of arcane energy that quickly travels to a target enemy, roots it for {{ e2 }} second(s) and deals {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e% of the target\u0027s maximum health as magic damage (Max: {{ e3 }} to minions and monsters).",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        9.0,
+        10.0,
+        11.0,
+        12.0,
+        13.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.0,
+        1.25,
+        1.5,
+        1.75,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "9/10/11/12/13",
+    "1/1.25/1.5/1.75/2",
+    "300"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "MaokaiUnstableGrowth.png",
+    "sprite": "spell6.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 48,
+    "y": 144
+  },
+  "key": "MaokaiUnstableGrowth",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }}% -\u003e {{ e1NL }}%",
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Root Duration",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    525,
+    525,
+    525,
+    525,
+    525
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.03
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     60.0,
     50.0,
     40.0
@@ -2747,6 +3516,292 @@
 
 {
   "cooldown": [
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0
+  ],
+  "cooldownBurn": "9",
+  "costBurn": "50/55/60/65/70",
+  "costType": "Mana",
+  "name": "Ravage",
+  "rangeBurn": "225",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    50,
+    55,
+    60,
+    65,
+    70
+  ],
+  "dbId": 0,
+  "description": "Evelynn slashes her target twice, dealing damage with each hit. She then gains increased Attack Speed for a short duration.",
+  "sanitizedDescription": "Evelynn slashes her target twice, dealing damage with each hit. She then gains increased Attack Speed for a short duration.",
+  "sanitizedTooltip": "Evelynn swiftly attacks a target {{ e3 }} times (applies on-hit effects), dealing a total of {{ e1 }} (+{{ a1 }}) (+{{ f1 }}) physical damage. Evelynn then gains {{ e4 }}% Attack Speed for {{ e2 }} seconds.",
+  "tooltip": "Evelynn swiftly attacks a target {{ e3 }} times (applies on-hit effects), dealing a total of {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ f1 }})\u003c/span\u003e physical damage.\u003cbr\u003e\u003cbr\u003eEvelynn then gains {{ e4 }}% Attack Speed for {{ e2 }} seconds.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        70.0,
+        110.0,
+        150.0,
+        190.0,
+        230.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        60.0,
+        75.0,
+        90.0,
+        105.0,
+        120.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "70/110/150/190/230",
+    "3",
+    "2",
+    "60/75/90/105/120"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "EvelynnE.png",
+    "sprite": "spell2.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 384,
+    "y": 96
+  },
+  "key": "EvelynnE",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e4 }}% -\u003e {{ e4NL }}%",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Attack Speed",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    225,
+    225,
+    225,
+    225,
+    225
+  ],
+  "vars": [
+    {
+      "coeff": [
+        1.0
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.4
+      ],
+      "dbId": 0,
+      "link": "bonusattackdamage",
+      "key": "f1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0
+  ],
+  "cooldownBurn": "10",
+  "costBurn": "40",
+  "costType": "Mana",
+  "name": "Seastone Trident",
+  "rangeBurn": "self",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    40,
+    40,
+    40,
+    40,
+    40
+  ],
+  "dbId": 0,
+  "description": "Fizz\u0027s attacks passively rend his enemies, dealing magic damage over several seconds based on the target\u0027s missing Health. When activated, for a short duration, Fizz\u0027s attacks deal additional magic damage.",
+  "sanitizedDescription": "Fizz\u0027s attacks passively rend his enemies, dealing magic damage over several seconds based on the target\u0027s missing Health. When activated, for a short duration, Fizz\u0027s attacks deal additional magic damage.",
+  "sanitizedTooltip": "Passive: Fizz\u0027s attacks rend his enemies, dealing {{ e1 }} (+{{ a1 }}) plus {{ e2 }}% of the target\u0027s missing Health as magic damage over {{ e4 }} seconds. Active: For {{ e6 }} seconds, Fizz\u0027s attacks deal an additional {{ e3 }} (+{{ a2 }}) magic damage on hit.",
+  "tooltip": "\u003cspan class\u003d\"colorFF9900\"\u003ePassive: \u003c/span\u003eFizz\u0027s attacks rend his enemies, dealing {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e plus {{ e2 }}% of the target\u0027s missing Health as magic damage over {{ e4 }} seconds. \u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eActive: \u003c/span\u003eFor {{ e6 }} seconds, Fizz\u0027s attacks deal an additional {{ e3 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e magic damage on hit. ",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        30.0,
+        40.0,
+        50.0,
+        60.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.0,
+        2.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        300.0,
+        300.0,
+        300.0,
+        300.0,
+        300.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "20/30/40/50/60",
+    "4/5/6/7/8",
+    "10/15/20/25/30",
+    "3",
+    "2",
+    "6",
+    "300"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "FizzSeastonePassive.png",
+    "sprite": "spell3.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 144,
+    "y": 0
+  },
+  "key": "FizzSeastonePassive",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e3 }} -\u003e {{ e3NL }}",
+      "{{ e2 }}% -\u003e{{ e2NL }}%"
+    ],
+    "label": [
+      "Passive Base Damage",
+      "Active Base Damage",
+      "Missing Health Percent"
+    ]
+  },
+  "maxrank": 5,
+  "vars": [
+    {
+      "coeff": [
+        0.45
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.3
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     18.0,
     17.0,
     16.0,
@@ -2989,6 +4044,119 @@
       ],
       "dbId": 0,
       "link": "attackdamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    6.0,
+    6.0,
+    6.0,
+    6.0,
+    6.0
+  ],
+  "cooldownBurn": "6",
+  "costBurn": "0",
+  "costType": "Heat",
+  "name": "Scrap Shield",
+  "rangeBurn": "self",
+  "resource": "{{ e3 }} Heat",
+  "cost": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "dbId": 0,
+  "description": "Rumble pulls up a shield, protecting him from damage and granting him a quick burst of speed. While in Danger Zone, the shield strength and speed bonus is increased. ",
+  "sanitizedDescription": "Rumble pulls up a shield, protecting him from damage and granting him a quick burst of speed. While in Danger Zone, the shield strength and speed bonus is increased.",
+  "sanitizedTooltip": "Rumble tosses up a shield for 2 seconds that absorbs {{ e1 }} (+{{ a1 }}) damage. Rumble also gains an additional {{ e2 }}% Movement Speed for 1 second. Danger Zone Bonus: 50% increase in shield health and Movement Speed.",
+  "tooltip": "Rumble tosses up a shield for 2 seconds that absorbs {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e damage. Rumble also gains an additional {{ e2 }}% Movement Speed for 1 second. \u003c/span\u003e\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFFFF00\"\u003eDanger Zone Bonus:\u003c/span\u003e 50% increase in shield health and Movement Speed.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        50.0,
+        80.0,
+        110.0,
+        140.0,
+        170.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        13.0,
+        19.0,
+        26.0,
+        32.0,
+        39.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "50/80/110/140/170",
+    "10/15/20/25/30",
+    "20",
+    "13/19/26/32/39"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "RumbleShield.png",
+    "sprite": "spell9.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 0,
+    "y": 48
+  },
+  "key": "RumbleShield",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}%"
+    ],
+    "label": [
+      "Damage Absorption",
+      "Movement Speed Bonus"
+    ]
+  },
+  "maxrank": 5,
+  "vars": [
+    {
+      "coeff": [
+        0.4
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
       "key": "a1"
     }
   ]
@@ -3602,6 +4770,161 @@
     {
       "coeff": [
         0.6
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    120.0,
+    105.0,
+    90.0
+  ],
+  "cooldownBurn": "120/105/90",
+  "costBurn": "0",
+  "costType": "NoCost",
+  "name": "Children of the Grave",
+  "rangeBurn": "650",
+  "resource": "No Cost",
+  "cost": [
+    0,
+    0,
+    0
+  ],
+  "dbId": 0,
+  "description": "Mordekaiser curses an enemy champion or the Dragon, stealing a percent of their life initially and each second. If the target dies while the spell is active, their soul is enslaved and will follow Mordekaiser as a ghost.",
+  "sanitizedDescription": "Mordekaiser curses an enemy champion or the Dragon, stealing a percent of their life initially and each second. If the target dies while the spell is active, their soul is enslaved and will follow Mordekaiser as a ghost.",
+  "sanitizedTooltip": "Passive - Dragon Force: Damaging the Dragon will Curse it for 10 seconds. Active: Curse target Champion and steal {{ e1 }} (+{{ a1 }})% of their maximum health (half initially, half over 10 seconds; deals magic damage). Curse Effect: When killed by Mordekaiser\u0027s team, the Cursed unit\u0027s soul will follow Mordekaiser for {{ e9 }} seconds. Mordekaiser gains {{ e7 }}% of their ability power and {{ e8 }}% of their bonus health. The ghost gains {{ e6 }} attack damage and 15% of Mordekaiser\u0027s maximum health. The ghost can be controlled by holding the alt key and using the right mouse button or by reactivating this ability.",
+  "tooltip": "\u003cspan class\u003d\"size18 colorFF9900\"\u003ePassive - Dragon Force:\u003c/span\u003e Damaging the Dragon will Curse it for 10 seconds.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"size18 colorFF9900\"\u003eActive:\u003c/span\u003e Curse target Champion and steal {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e% of their maximum health (half initially, half over 10 seconds; deals magic damage).\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"size18 colorFF9900\"\u003eCurse Effect:\u003c/span\u003e When killed by Mordekaiser\u0027s team, the Cursed unit\u0027s soul will follow Mordekaiser for {{ e9 }} seconds.\u003cfont size \u003d \u00273\u0027\u003e\u003cbr\u003e\u003cbr\u003e\u003c/span\u003eMordekaiser gains {{ e7 }}% of their ability power and {{ e8 }}% of their bonus health.\u003cfont size \u003d \u00273\u0027\u003e\u003cbr\u003e\u003cbr\u003e\u003c/span\u003eThe ghost gains {{ e6 }} attack damage and 15% of Mordekaiser\u0027s maximum health.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"color99FF99\"\u003eThe ghost can be controlled by holding the alt key and using the right mouse button or by reactivating this ability.\u003c/span\u003e",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        25.0,
+        30.0,
+        35.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        55.0,
+        65.0,
+        75.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        75.0,
+        150.0,
+        225.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        25.0,
+        50.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        30.0,
+        30.0,
+        30.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        25.0,
+        25.0,
+        25.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        45.0,
+        60.0,
+        75.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "25/30/35",
+    "55/65/75",
+    "75/150/225",
+    "2",
+    "3",
+    "10/25/50",
+    "30",
+    "25",
+    "45/60/75"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "MordekaiserChildrenOfTheGrave.png",
+    "sprite": "spell7.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 432,
+    "y": 0
+  },
+  "key": "MordekaiserChildrenOfTheGrave",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }}% -\u003e {{ e1NL }}%",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}",
+      "{{ e6 }} -\u003e {{ e6NL }}",
+      "{{ e9 }} -\u003e {{ e9NL }}"
+    ],
+    "label": [
+      "Total Health Stolen",
+      "Cooldown",
+      "Ghost Bonus Attack Damage",
+      "Ghost Lifetime"
+    ]
+  },
+  "maxrank": 3,
+  "range": [
+    650,
+    650,
+    650
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.04
       ],
       "dbId": 0,
       "link": "spelldamage",
@@ -5810,6 +7133,137 @@
 
 {
   "cooldown": [
+    6.0,
+    6.0,
+    6.0,
+    6.0,
+    6.0
+  ],
+  "cooldownBurn": "6",
+  "costBurn": "0",
+  "costType": "none",
+  "name": "Blighted Quiver",
+  "rangeBurn": "self",
+  "cost": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "dbId": 0,
+  "description": "Varus\u0027 basic attacks deal bonus magic damage and apply Blight. Varus\u0027 other abilities detonate Blight, dealing magic damage based on the target\u0027s maximum Health.",
+  "sanitizedDescription": "Varus\u0027 basic attacks deal bonus magic damage and apply Blight. Varus\u0027 other abilities detonate Blight, dealing magic damage based on the target\u0027s maximum Health.",
+  "sanitizedTooltip": "Passive: Varus\u0027 basic attacks deal {{ e1 }} (+{{ a1 }}) bonus magic damage and apply Blight for {{ e3 }} seconds (stacks {{ e4 }} times). Varus\u0027 other abilities detonate Blight, dealing magic damage equal to {{ e2 }}% (+{{ a2 }}%) of the target\u0027s maximum Health per stack (Max: 360 total damage vs Monsters).",
+  "tooltip": " \u003cspan class\u003d\"colorFF9900\"\u003ePassive: \u003c/span\u003eVarus\u0027 basic attacks deal {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e bonus magic damage and apply Blight for {{ e3 }} seconds (stacks {{ e4 }} times). \u003cbr\u003e\u003cbr\u003eVarus\u0027 other abilities detonate Blight, dealing magic damage equal to {{ e2 }}% \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }}%)\u003c/span\u003e of the target\u0027s maximum Health per stack (Max: 360 total damage vs Monsters).",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        14.0,
+        18.0,
+        22.0,
+        26.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.75,
+        3.5,
+        4.25,
+        5.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "10/14/18/22/26",
+    "2/2.75/3.5/4.25/5",
+    "6",
+    "3",
+    "2/2.5/3/3.5/4"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "VarusW.png",
+    "sprite": "spell11.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 0,
+    "y": 144
+  },
+  "key": "VarusW",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}%"
+    ],
+    "label": [
+      "Initial Damage",
+      "Max Health Damage"
+    ]
+  },
+  "maxrank": 5,
+  "vars": [
+    {
+      "coeff": [
+        0.25
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.02
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     18.0,
     16.0,
     14.0,
@@ -7238,6 +8692,102 @@
       "dbId": 0,
       "link": "@text",
       "key": "f2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    100.0,
+    90.0,
+    80.0
+  ],
+  "cooldownBurn": "100/90/80",
+  "costBurn": "100",
+  "costType": "Mana",
+  "name": "Unleashed Power",
+  "rangeBurn": "675",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    100,
+    100,
+    100
+  ],
+  "dbId": 0,
+  "description": "Syndra bombards an enemy Champion with all of her Dark Spheres.",
+  "sanitizedDescription": "Syndra bombards an enemy Champion with all of her Dark Spheres.",
+  "sanitizedTooltip": "Draws upon Syndra\u0027s full cataclysmic power, harnessing all Dark Spheres to deal magic damage to target enemy Champion. Unleashed Power manipulates the three Dark Spheres orbiting Syndra, in addition to Dark Spheres previously created. Damage per sphere: {{ e1 }} (+{{ a1 }}). Minimum total damage: {{ e2 }} (+{{ a2 }}).",
+  "tooltip": "Draws upon Syndra\u0027s full cataclysmic power, harnessing all Dark Spheres to deal magic damage to target enemy Champion. Unleashed Power manipulates the three Dark Spheres orbiting Syndra, in addition to Dark Spheres previously created.\u003cbr\u003e\u003cbr\u003eDamage per sphere: {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e.\u003cbr\u003eMinimum total damage: {{ e2 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        90.0,
+        135.0,
+        180.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        270.0,
+        405.0,
+        540.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "90/135/180",
+    "270/405/540"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "SyndraR.png",
+    "sprite": "spell10.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 192,
+    "y": 96
+  },
+  "key": "SyndraR",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }} ",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 3,
+  "range": [
+    675,
+    675,
+    675
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.6
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
     }
   ]
 }
@@ -9453,6 +11003,260 @@
 }
 
 {
+  "cooldown": [
+    120.0,
+    100.0,
+    80.0
+  ],
+  "cooldownBurn": "120/100/80",
+  "costBurn": "125",
+  "costType": "Mana",
+  "name": "Primordial Burst",
+  "rangeBurn": "650",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    125,
+    125,
+    125
+  ],
+  "dbId": 0,
+  "description": "Blasts target enemy champion, dealing a large base amount of magic damage plus 80% of his target\u0027s ability power.",
+  "sanitizedDescription": "Blasts target enemy champion, dealing a large base amount of magic damage plus 80% of his target\u0027s ability power.",
+  "sanitizedTooltip": "Blasts an enemy champion, dealing {{ e1 }} (+{{ a1 }}) plus 80% of his target\u0027s ability power in magic damage.",
+  "tooltip": "Blasts an enemy champion, dealing {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e plus 80% of his target\u0027s ability power in magic damage.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        250.0,
+        375.0,
+        500.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        500.0,
+        1000.0,
+        1500.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        75.0,
+        150.0,
+        225.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "250/375/500",
+    "500/1000/1500",
+    "75/150/225"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "VeigarPrimordialBurst.png",
+    "sprite": "spell12.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 0,
+    "y": 0
+  },
+  "key": "VeigarPrimordialBurst",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Base Damage",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 3,
+  "range": [
+    650,
+    650,
+    650
+  ],
+  "vars": [
+    {
+      "coeff": [
+        1.0
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "altimages": [
+    {
+      "dbId": 0,
+      "full": "GnarW0.png",
+      "sprite": "spell3.png",
+      "group": "spell",
+      "h": 48,
+      "w": 48,
+      "x": 48,
+      "y": 96
+    }
+  ],
+  "cooldown": [
+    15.0,
+    13.0,
+    11.0,
+    9.0,
+    7.0
+  ],
+  "cooldownBurn": "15/13/11/9/7",
+  "costBurn": "0",
+  "costType": "NoCost",
+  "name": "Hyper / Wallop",
+  "rangeBurn": "0",
+  "resource": "No Cost",
+  "cost": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "dbId": 0,
+  "description": "Gnar\u0027s attacks and spells hype him up, dealing bonus damage and granting him Movement Speed.\u003cbr\u003e\u003cbr\u003eMega Gnar is too enraged to be hyper and instead can rear up on his hind legs and smash down on the area in front of him, stunning enemies in an area.",
+  "sanitizedDescription": "Gnar\u0027s attacks and spells hype him up, dealing bonus damage and granting him Movement Speed. Mega Gnar is too enraged to be hyper and instead can rear up on his hind legs and smash down on the area in front of him, stunning enemies in an area.",
+  "sanitizedTooltip": "Mini Gnar: Passive: Every 3rd attack or spell on the same target deals an additional {{ e1 }} (+{{ a1 }}) + {{ e2 }}% of the target\u0027s max Health as magic damage and grants Gnar {{ f1 }}% Movement Speed that decays over 3 seconds (max {{ e4 }} damage vs. monsters). Mega Gnar: Stuns enemies in an area for 1.25 seconds, dealing {{ e3 }} (+{{ a2 }}) physical damage. Gnar gains Hyper\u0027s Movement Speed bonus when he leaves Mega form.",
+  "tooltip": "\u003cspan class\u003d\"color33FF33\"\u003eMini Gnar: \u003c/span\u003e\u003cspan class\u003d\"colorFF9900\"\u003ePassive:\u003c/span\u003e Every 3rd attack or spell on the same target deals an additional {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }}) \u003c/span\u003e+ {{ e2 }}% of the target\u0027s max Health as magic damage and grants Gnar {{ f1 }}% Movement Speed that decays over 3 seconds (max {{ e4 }} damage vs. monsters). \u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF3300\"\u003eMega Gnar: \u003c/span\u003eStuns enemies in an area for 1.25 seconds, dealing {{ e3 }}\u003cspan class\u003d\"colorFF8C00\"\u003e (+{{ a2 }})\u003c/span\u003e physical damage.\u003cbr\u003e\u003cbr\u003eGnar gains Hyper\u0027s Movement Speed bonus when he leaves Mega form.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        20.0,
+        30.0,
+        40.0,
+        50.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        8.0,
+        10.0,
+        12.0,
+        14.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        25.0,
+        45.0,
+        65.0,
+        85.0,
+        105.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        100.0,
+        150.0,
+        200.0,
+        250.0,
+        300.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "10/20/30/40/50",
+    "6/8/10/12/14",
+    "25/45/65/85/105",
+    "100/150/200/250/300",
+    "2/2.5/3/3.5/4"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "GnarW.png",
+    "sprite": "spell3.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 0,
+    "y": 96
+  },
+  "key": "GnarW",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}%",
+      "{{ e4 }} -\u003e {{ e4NL }}",
+      "{{ e3 }} -\u003e {{ e3NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Hyper Damage",
+      "Hyper % Health Damage",
+      "Hyper Max Damage to monsters",
+      "Wallop Damage",
+      "Wallop Cooldown"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "vars": [
+    {
+      "coeff": [
+        1.0
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        1.0
+      ],
+      "dbId": 0,
+      "link": "attackdamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
   "altimages": [
     {
       "dbId": 0,
@@ -9901,6 +11705,116 @@
       "dbId": 0,
       "link": "spelldamage",
       "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    18.0,
+    15.5,
+    13.0,
+    10.5,
+    8.0
+  ],
+  "cooldownBurn": "18/15.5/13/10.5/8",
+  "costBurn": "50/60/70/80/90",
+  "costType": "Mana",
+  "name": "Vault Breaker",
+  "rangeBurn": "250",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    50,
+    60,
+    70,
+    80,
+    90
+  ],
+  "dbId": 0,
+  "description": "Vi charges her gauntlets and unleashes a vault shattering punch, carrying her forward. Enemies she hits are knocked back and receive a stack of Denting Blows.",
+  "sanitizedDescription": "Vi charges her gauntlets and unleashes a vault shattering punch, carrying her forward. Enemies she hits are knocked back and receive a stack of Denting Blows.",
+  "sanitizedTooltip": "Charges a powerful punch that carries Vi forward. First Cast: Slows Movement Speed by 15% while increasing damage and dash range over 1.25 seconds. Second Cast: Dashes forward dealing {{ e1 }} (+{{ a1 }}) to {{ e2 }} (+{{ f1 }}) physical damage and applying Denting Blows to all enemies hit (deals 75% damage to minions and monsters). Stops upon colliding with an enemy champion, knocking it back.",
+  "tooltip": "Charges a powerful punch that carries Vi forward.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eFirst Cast:\u003c/span\u003e Slows Movement Speed by 15% while increasing damage and dash range over 1.25 seconds.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eSecond Cast:\u003c/span\u003e Dashes forward dealing {{ e1 }} \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ a1 }})\u003c/span\u003e to {{ e2 }} \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ f1 }})\u003c/span\u003e physical damage and applying Denting Blows to all enemies hit (deals 75% damage to minions and monsters). Stops upon colliding with an enemy champion, knocking it back.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        50.0,
+        75.0,
+        100.0,
+        125.0,
+        150.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        100.0,
+        150.0,
+        200.0,
+        250.0,
+        300.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "50/75/100/125/150",
+    "100/150/200/250/300"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "ViQ.png",
+    "sprite": "spell12.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 240,
+    "y": 0
+  },
+  "key": "ViQ",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}",
+      " {{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Min Damage",
+      "Max Damage",
+      "Cooldown",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.8
+      ],
+      "dbId": 0,
+      "link": "bonusattackdamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        1.4
+      ],
+      "dbId": 0,
+      "link": "bonusattackdamage",
+      "key": "f1"
     }
   ]
 }
@@ -12402,6 +14316,152 @@
 
 {
   "cooldown": [
+    80.0,
+    80.0,
+    80.0
+  ],
+  "cooldownBurn": "80",
+  "costBurn": "100",
+  "costType": "Mana",
+  "name": "Grandmaster\u0027s Might",
+  "rangeBurn": "self",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    100,
+    100,
+    100
+  ],
+  "dbId": 0,
+  "description": "Every third consecutive attack deals additional Magic Damage. Additionally, Jax can activate this ability to strengthen his resolve, increasing his Armor and Magic Resist for a short duration.",
+  "sanitizedDescription": "Every third consecutive attack deals additional Magic Damage. Additionally, Jax can activate this ability to strengthen his resolve, increasing his Armor and Magic Resist for a short duration.",
+  "sanitizedTooltip": "Passive: Every third consecutive strike Jax deals {{ e1 }} (+{{ a1 }}) additional Magic Damage. Active: Jax strengthens his resolve, granting him {{ f2 }} Armor and {{ f1 }} Magic Resist for {{ e5 }} seconds. Armor bonus is equal to {{ e3 }} + {{ e6 }}% bonus Attack Damage. Magic Resist bonus is equal to {{ e3 }} + {{ e7 }}% Ability Power.",
+  "tooltip": "\u003cspan class\u003d\"colorFF9900\"\u003ePassive:\u003c/span\u003e Every third consecutive strike Jax deals {{ e1 }}\u003cspan class\u003d\"color99FF99\"\u003e (+{{ a1 }}) \u003c/span\u003eadditional Magic Damage.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eActive:\u003c/span\u003e Jax strengthens his resolve, granting him \u003cspan class\u003d\"colorFF8C00\"\u003e{{ f2 }}\u003c/span\u003e Armor and \u003cspan class\u003d\"color99FF99\"\u003e{{ f1 }}\u003c/span\u003e Magic Resist for {{ e5 }} seconds.\u003cspan class\u003d\"colorFF8C00\"\u003e\u003cbr\u003e\u003cbr\u003eArmor bonus is equal to {{ e3 }} + {{ e6 }}% bonus Attack Damage.\u003c/span\u003e\u003cspan class\u003d\"color99FF99\"\u003e\u003cbr\u003eMagic Resist bonus is equal to {{ e3 }} + {{ e7 }}% Ability Power.\u003c/span\u003e",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        100.0,
+        160.0,
+        220.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        30.0,
+        50.0,
+        70.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        8.0,
+        10.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        8.0,
+        8.0,
+        8.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        50.0,
+        50.0,
+        50.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        20.0,
+        20.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "100/160/220",
+    "3",
+    "30/50/70",
+    "6/8/10",
+    "8",
+    "50",
+    "20"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "JaxRelentlessAssault.png",
+    "sprite": "spell4.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 288,
+    "y": 48
+  },
+  "key": "JaxRelentlessAssault",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e3 }} -\u003e {{ e3NL }}",
+      "{{ e3 }} -\u003e {{ e3NL }}"
+    ],
+    "label": [
+      "Passive Damage",
+      "Armor Bonus",
+      "Magic Resist Bonus"
+    ]
+  },
+  "maxrank": 3,
+  "vars": [
+    {
+      "coeff": [
+        0.7
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.3
+      ],
+      "dbId": 0,
+      "link": "@special.jaxrarmor",
+      "key": "f2"
+    },
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "@special.jaxrmr",
+      "key": "f1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     9.0,
     8.0,
     7.0,
@@ -14075,6 +16135,170 @@
       "dbId": 0,
       "link": "spelldamage",
       "key": "a1"
+    }
+  ]
+}
+
+{
+  "altimages": [
+    {
+      "dbId": 0,
+      "full": "RekSaiQ0.png",
+      "sprite": "spell8.png",
+      "group": "spell",
+      "h": 48,
+      "w": 48,
+      "x": 0,
+      "y": 144
+    }
+  ],
+  "cooldown": [
+    4.0,
+    4.0,
+    4.0,
+    4.0,
+    4.0
+  ],
+  "cooldownBurn": "4",
+  "costBurn": "0",
+  "costType": "NoCost",
+  "name": "Queen\u0027s Wrath / Prey Seeker",
+  "rangeBurn": "325",
+  "resource": "No Cost",
+  "cost": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "dbId": 0,
+  "description": "Rek\u0027Sai\u0027s next 3 basic attacks deal bonus Physical Damage to nearby enemies.\u003cbr\u003e\u003cbr\u003eWhile Burrowed, Rek\u0027Sai launches a burst of void-charged earth that deals Magic Damage and reveals enemies hit.",
+  "sanitizedDescription": "Rek\u0027Sai\u0027s next 3 basic attacks deal bonus Physical Damage to nearby enemies. While Burrowed, Rek\u0027Sai launches a burst of void-charged earth that deals Magic Damage and reveals enemies hit.",
+  "sanitizedTooltip": "Un-Burrowed: Rek\u0027Sai\u0027s next 3 basic attacks within 5 seconds deal {{ e1 }} (+{{ a1 }}) bonus Physical Damage to nearby enemies. Burrowed: Rek\u0027Sai launches a burst of void-charged earth that explodes on first unit hit, dealing {{ e4 }} (+{{ a2 }}) Magic Damage and revealing non-stealthed enemies hit for {{ e6 }} seconds.",
+  "tooltip": "\u003cspan class\u003d\"colorFFFFFF\"\u003eUn-Burrowed:\u003c/span\u003e Rek\u0027Sai\u0027s next 3 basic attacks within 5 seconds deal {{ e1 }} \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ a1 }})\u003c/span\u003e bonus Physical Damage to nearby enemies.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFFFFFF\"\u003eBurrowed:\u003c/span\u003e Rek\u0027Sai launches a burst of void-charged earth that explodes on first unit hit, dealing {{ e4 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e Magic Damage and revealing non-stealthed enemies hit for {{ e6 }} seconds.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        15.0,
+        25.0,
+        35.0,
+        45.0,
+        55.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        11.0,
+        10.0,
+        9.0,
+        8.0,
+        7.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "15/25/35/45/55",
+    "0.7",
+    "8/12/16/20/24",
+    "60/90/120/150/180",
+    "11/10/9/8/7",
+    "2.5"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "RekSaiQ.png",
+    "sprite": "spell8.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 432,
+    "y": 96
+  },
+  "key": "RekSaiQ",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e4 }} -\u003e {{ e4NL }}",
+      "{{ e5 }} -\u003e {{ e5NL }}"
+    ],
+    "label": [
+      "Queen\u0027s Wrath Damage",
+      "Prey Seeker Damage",
+      "Prey Seeker Cooldown"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    325,
+    325,
+    325,
+    325,
+    325
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "bonusattackdamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.7
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
     }
   ]
 }
@@ -16255,6 +18479,119 @@
     {
       "coeff": [
         0.8
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    10.0,
+    9.0,
+    8.0,
+    7.0,
+    6.0
+  ],
+  "cooldownBurn": "10/9/8/7/6",
+  "costBurn": "70/80/90/100/110",
+  "costType": "Mana",
+  "name": "Hungering Strike",
+  "rangeBurn": "400",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+  ],
+  "dbId": 0,
+  "description": "Takes a bite out of an enemy unit and heals Warwick.",
+  "sanitizedDescription": "Takes a bite out of an enemy unit and heals Warwick.",
+  "sanitizedTooltip": "Strikes an enemy for the greater value between {{ e1 }} (+{{ a1 }}) and {{ e2 }}% (+{{ a1 }}) of the target\u0027s maximum Health as magic damage (can only do flat damage to monsters), and heals Warwick for {{ e3 }}% of the damage dealt.",
+  "tooltip": "Strikes an enemy for the greater value between {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e and {{ e2 }}% \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e of the target\u0027s maximum Health as magic damage (can only do flat damage to monsters), and heals Warwick for {{ e3 }}% of the damage dealt.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        75.0,
+        125.0,
+        175.0,
+        225.0,
+        275.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        8.0,
+        10.0,
+        12.0,
+        14.0,
+        16.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        80.0,
+        80.0,
+        80.0,
+        80.0,
+        80.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "75/125/175/225/275",
+    "8/10/12/14/16",
+    "80"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "HungeringStrike.png",
+    "sprite": "spell12.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 48,
+    "y": 96
+  },
+  "key": "HungeringStrike",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}%",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Max Health %",
+      "Cooldown",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    400,
+    400,
+    400,
+    400,
+    400
+  ],
+  "vars": [
+    {
+      "coeff": [
+        1.0
       ],
       "dbId": 0,
       "link": "spelldamage",
@@ -19015,6 +21352,355 @@
 
 {
   "cooldown": [
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0
+  ],
+  "cooldownBurn": "10",
+  "costBurn": "70/80/90/100/110",
+  "costType": "Mana",
+  "name": "Eye Of The Storm",
+  "rangeBurn": "800",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    70,
+    80,
+    90,
+    100,
+    110
+  ],
+  "dbId": 0,
+  "description": "Janna conjures a defensive gale that shields an ally champion or turret from incoming damage and increases their Attack Damage.",
+  "sanitizedDescription": "Janna conjures a defensive gale that shields an ally champion or turret from incoming damage and increases their Attack Damage.",
+  "sanitizedTooltip": "Shields an allied Champion or turret for {{ e3 }} seconds. The shield absorbs up to {{ e1 }} (+{{ a1 }}) damage and grants {{ e2 }} (+{{ a2 }}) Attack Damage until it breaks.",
+  "tooltip": "Shields an allied Champion or turret for {{ e3 }} seconds. The shield absorbs up to {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e damage and grants {{ e2 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e Attack Damage until it breaks.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        80.0,
+        120.0,
+        160.0,
+        200.0,
+        240.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        14.0,
+        23.0,
+        32.0,
+        41.0,
+        50.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        5.0,
+        5.0,
+        5.0,
+        5.0,
+        5.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "80/120/160/200/240",
+    "14/23/32/41/50",
+    "5"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "EyeOfTheStorm.png",
+    "sprite": "spell4.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 336,
+    "y": 0
+  },
+  "key": "EyeOfTheStorm",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }} ",
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Shield Health",
+      "Attack Damage Bonus",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    800,
+    800,
+    800,
+    800,
+    800
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.7
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.1
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    13.0,
+    11.5,
+    10.0,
+    8.5,
+    7.0
+  ],
+  "cooldownBurn": "13/11.5/10/8.5/7",
+  "costBurn": "40/50/60/70/80",
+  "costType": "Mana",
+  "name": "Phase Dive",
+  "rangeBurn": "325",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    40,
+    50,
+    60,
+    70,
+    80
+  ],
+  "dbId": 0,
+  "description": "Ekko rolls evasively while charging up his Z-Drive. His next attack deals bonus damage and warps reality, teleporting him to his target.",
+  "sanitizedDescription": "Ekko rolls evasively while charging up his Z-Drive. His next attack deals bonus damage and warps reality, teleporting him to his target.",
+  "sanitizedTooltip": "Ekko dashes a short distance in the targeted direction. His next attack will deal {{ e1 }} (+{{ a1 }}) bonus magic damage and teleport him to his target.",
+  "tooltip": " Ekko dashes a short distance in the targeted direction. His next attack will deal {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e bonus magic damage and teleport him to his target.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        50.0,
+        80.0,
+        110.0,
+        140.0,
+        170.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "50/80/110/140/170"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "EkkoE.png",
+    "sprite": "spell13.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 288,
+    "y": 144
+  },
+  "key": "EkkoE",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Cooldown",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    325,
+    325,
+    325,
+    325,
+    325
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    9.0,
+    9.0,
+    9.0,
+    9.0,
+    9.0
+  ],
+  "cooldownBurn": "9",
+  "costBurn": "60",
+  "costType": "Mana",
+  "name": "Command: Protect",
+  "rangeBurn": "1095",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    60,
+    60,
+    60,
+    60,
+    60
+  ],
+  "dbId": 0,
+  "description": "Orianna commands her ball to attach to an allied champion, shielding them and dealing magic damage to any enemies it passes through on the way. Additionally, the ball grants additional Armor and Magic Resist to the champion it is attached to.",
+  "sanitizedDescription": "Orianna commands her ball to attach to an allied champion, shielding them and dealing magic damage to any enemies it passes through on the way. Additionally, the ball grants additional Armor and Magic Resist to the champion it is attached to.",
+  "sanitizedTooltip": "Passive: The ball adds {{ e2 }} Armor and Magic Resist to the allied champion it is attached to. Active: Orianna commands her ball to travel to and attach onto an allied champion, shielding them for {{ e5 }} seconds from the next {{ e1 }} (+{{ a1 }}) damage. Enemies the ball passes through along the way are damaged for {{ e4 }}% of the shield value: {{ e3 }} (+{{ a2 }}).",
+  "tooltip": "\u003cspan class\u003d\"colorFF9900\"\u003ePassive: \u003c/span\u003eThe ball adds {{ e2 }} Armor and Magic Resist to the allied champion it is attached to.\u003cbr\u003e\u003cbr\u003e\u003cspan class\u003d\"colorFF9900\"\u003eActive: \u003c/span\u003eOrianna commands her ball to travel to and attach onto an allied champion, shielding them for {{ e5 }} seconds from the next {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e damage. Enemies the ball passes through along the way are damaged for {{ e4 }}% of the shield value: {{ e3 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e.\u003c/span\u003e",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        80.0,
+        120.0,
+        160.0,
+        200.0,
+        240.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        10.0,
+        15.0,
+        20.0,
+        25.0,
+        30.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        60.0,
+        90.0,
+        120.0,
+        150.0,
+        180.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        75.0,
+        75.0,
+        75.0,
+        75.0,
+        75.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "80/120/160/200/240",
+    "10/15/20/25/30",
+    "60/90/120/150/180",
+    "75",
+    "4"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "OrianaRedactCommand.png",
+    "sprite": "spell8.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 48,
+    "y": 48
+  },
+  "key": "OrianaRedactCommand",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ e1 }} -\u003e {{ e1NL }}"
+    ],
+    "label": [
+      "Armor Bonus",
+      "Magic Resist Bonus",
+      "Damage Absorption"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    1095,
+    1095,
+    1095,
+    1095,
+    1095
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.4
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.3
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     15.0,
     14.0,
     13.0,
@@ -20334,6 +23020,115 @@
 
 {
   "cooldown": [
+    90.0,
+    75.0,
+    60.0
+  ],
+  "cooldownBurn": "90/75/60",
+  "costBurn": "100",
+  "costType": "Mana",
+  "name": "Super Mega Death Rocket!",
+  "rangeBurn": "25000",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    100,
+    100,
+    100
+  ],
+  "dbId": 0,
+  "description": "Jinx fires a super rocket across the map that gains damage as it travels. The rocket will explode upon colliding with an enemy champion, dealing damage to it and surrounding enemies based on their missing Health. ",
+  "sanitizedDescription": "Jinx fires a super rocket across the map that gains damage as it travels. The rocket will explode upon colliding with an enemy champion, dealing damage to it and surrounding enemies based on their missing Health.",
+  "sanitizedTooltip": "Jinx fires a rocket that gains damage over the first second it travels. It explodes on the first enemy champion hit, dealing {{ e1 }} (+{{ a1 }}) to {{ e2 }} (+{{ a2 }}) Physical Damage plus {{ e3 }}% of the target\u0027s missing Health. Nearby enemies take 80% Damage.",
+  "tooltip": "Jinx fires a rocket that gains damage over the first second it travels. It explodes on the first enemy champion hit, dealing {{ e1 }} \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ a1 }})\u003c/span\u003e to {{ e2 }} \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ a2 }})\u003c/span\u003e Physical Damage plus {{ e3 }}% of the target\u0027s missing Health. Nearby enemies take 80% Damage.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        25.0,
+        35.0,
+        45.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        250.0,
+        350.0,
+        450.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        25.0,
+        30.0,
+        35.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "25/35/45",
+    "250/350/450",
+    "25/30/35"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "JinxR.png",
+    "sprite": "spell4.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 384,
+    "y": 96
+  },
+  "key": "JinxR",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ e3 }}% -\u003e {{ e3NL }}%",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Minimum Damage",
+      "Maximum Damage",
+      "Percent Missing Health Damage",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 3,
+  "range": [
+    25000,
+    25000,
+    25000
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.1
+      ],
+      "dbId": 0,
+      "link": "bonusattackdamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        1.0
+      ],
+      "dbId": 0,
+      "link": "bonusattackdamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     12.0,
     12.0,
     12.0,
@@ -20675,6 +23470,123 @@
     850,
     850,
     850
+  ]
+}
+
+{
+  "cooldown": [
+    16.0,
+    15.0,
+    14.0,
+    13.0,
+    12.0
+  ],
+  "cooldownBurn": "16/15/14/13/12",
+  "costBurn": "55/60/65/70/75",
+  "costType": "Mana",
+  "name": "Terror Capacitor",
+  "rangeBurn": "self",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+  ],
+  "dbId": 0,
+  "description": "Urgot charges up his capacitor to gain a shield. While the shield is active, Urgot gains slowing attacks.",
+  "sanitizedDescription": "Urgot charges up his capacitor to gain a shield. While the shield is active, Urgot gains slowing attacks.",
+  "sanitizedTooltip": "Urgot charges up his terror capacitor to gain a shield that absorbs {{ e1 }} (+{{ a1 }}) plus {{ e4 }}% of his maximum mana (+{{ f1 }}) damage for 7 seconds. While the shield is active, Urgot\u0027s attacks and missiles slow targets by {{ e2 }}%.",
+  "tooltip": "Urgot charges up his terror capacitor to gain a shield that absorbs {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e plus {{ e4 }}% of his maximum mana \u003cspan class\u003d\"color44DDFF\"\u003e(+{{ f1 }})\u003c/span\u003e damage for 7 seconds. While the shield is active, Urgot\u0027s attacks and missiles slow targets by {{ e2 }}%. ",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        60.0,
+        100.0,
+        140.0,
+        180.0,
+        220.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        4.0,
+        6.0,
+        8.0,
+        10.0,
+        12.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "60/100/140/180/220",
+    "20/25/30/35/40",
+    "4/6/8/10/12",
+    "8"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "UrgotTerrorCapacitorActive2.png",
+    "sprite": "spell11.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 288,
+    "y": 96
+  },
+  "key": "UrgotTerrorCapacitorActive2",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      " {{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}% ",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage Absorption ",
+      "Slow % ",
+      "Cooldown",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "vars": [
+    {
+      "coeff": [
+        0.8
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
   ]
 }
 
@@ -21856,6 +24768,130 @@
 
 {
   "cooldown": [
+    9.0,
+    8.0,
+    7.0,
+    6.0,
+    5.0
+  ],
+  "cooldownBurn": "9/8/7/6/5",
+  "costBurn": "50",
+  "costType": "Energy",
+  "name": "Feint",
+  "rangeBurn": "self",
+  "resource": "{{ cost }} Energy",
+  "cost": [
+    50,
+    50,
+    50,
+    50,
+    50
+  ],
+  "dbId": 0,
+  "description": "Shen shields himself, absorbing incoming damage for a few seconds.",
+  "sanitizedDescription": "Shen shields himself, absorbing incoming damage for a few seconds.",
+  "sanitizedTooltip": "Shen shields himself, absorbing the next {{ e1 }} (+{{ a1 }}) damage. Lasts up to {{ e4 }} seconds. While Feint holds, his attacks reduce Ki Strike\u0027s cooldown by an additional {{ e5 }} second.",
+  "tooltip": "Shen shields himself, absorbing the next {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e damage. Lasts up to {{ e4 }} seconds.\u003cbr\u003e\u003cbr\u003eWhile Feint holds, his attacks reduce Ki Strike\u0027s cooldown by an additional {{ e5 }} second.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        60.0,
+        100.0,
+        140.0,
+        180.0,
+        220.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        20.0,
+        20.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "60/100/140/180/220",
+    "20/25/30/35/40",
+    "20",
+    "3",
+    "1"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "ShenFeint.png",
+    "sprite": "spell9.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 288,
+    "y": 96
+  },
+  "key": "ShenFeint",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      " {{ e1 }} -\u003e {{ e1NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Damage Blocked",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 5,
+  "vars": [
+    {
+      "coeff": [
+        0.6
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     16.0,
     14.0,
     12.0,
@@ -22429,6 +25465,108 @@
 
 {
   "cooldown": [
+    12.0,
+    11.0,
+    10.0,
+    9.0,
+    8.0
+  ],
+  "cooldownBurn": "12/11/10/9/8",
+  "costBurn": "50/60/70/80/90",
+  "costType": "Mana",
+  "name": "Contaminate",
+  "rangeBurn": "1200",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    50,
+    60,
+    70,
+    80,
+    90
+  ],
+  "dbId": 0,
+  "description": "Twitch wreaks further havoc on poisoned enemies with a blast of his vile diseases.",
+  "sanitizedDescription": "Twitch wreaks further havoc on poisoned enemies with a blast of his vile diseases.",
+  "sanitizedTooltip": "Deals {{ e2 }} physical damage plus {{ e1 }} (+{{ a1 }}) (+{{ f1 }}) per stack of Deadly Venom to all nearby enemies affected by Deadly Venom.",
+  "tooltip": "Deals {{ e2 }} physical damage plus {{ e1 }}\u003cspan class\u003d\"color99FF99\"\u003e (+{{ a1 }})\u003c/span\u003e \u003cspan class\u003d\"colorFF8C00\"\u003e(+{{ f1 }})\u003c/span\u003e per stack of Deadly Venom to all nearby enemies affected by Deadly Venom.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        35.0,
+        50.0,
+        65.0,
+        80.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "15/20/25/30/35",
+    "20/35/50/65/80"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "TwitchExpunge.png",
+    "sprite": "spell11.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 432,
+    "y": 48
+  },
+  "key": "TwitchExpunge",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ cost }} -\u003e {{ costnNL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Base Damage",
+      "Damage per Stack",
+      "Mana Cost",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    1200,
+    1200,
+    1200,
+    1200,
+    1200
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
     120.0,
     110.0,
     100.0
@@ -22527,6 +25665,108 @@
     ]
   },
   "maxrank": 3
+}
+
+{
+  "cooldown": [
+    35.0,
+    35.0,
+    35.0,
+    35.0,
+    35.0
+  ],
+  "cooldownBurn": "35",
+  "costBurn": "50",
+  "costType": "Mana",
+  "name": "Meditate",
+  "rangeBurn": "self",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    50,
+    50,
+    50,
+    50,
+    50
+  ],
+  "dbId": 0,
+  "description": "Master Yi rejuvenates his body by focus of mind, restoring Health and taking reduced damage for a short time.",
+  "sanitizedDescription": "Master Yi rejuvenates his body by focus of mind, restoring Health and taking reduced damage for a short time.",
+  "sanitizedTooltip": "Master Yi channels, restoring {{ e1 }} (+{{ a1 }}) Health per second for 4 seconds. This healing is increased by 1% for every 1% of Master Yi\u0027s missing Health. While channeling, Master Yi reduces incoming damage by {{ e3 }}%. This damage reduction is halved against turrets.",
+  "tooltip": "Master Yi channels, restoring {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e Health per second for 4 seconds. This healing is increased by 1% for every 1% of Master Yi\u0027s missing Health.\u003cbr\u003e\u003cbr\u003eWhile channeling, Master Yi reduces incoming damage by {{ e3 }}%. This damage reduction is halved against turrets.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        30.0,
+        50.0,
+        70.0,
+        90.0,
+        110.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        100.0,
+        150.0,
+        200.0,
+        250.0,
+        300.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        50.0,
+        55.0,
+        60.0,
+        65.0,
+        70.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "30/50/70/90/110",
+    "100/150/200/250/300",
+    "50/55/60/65/70"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "Meditate.png",
+    "sprite": "spell6.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 240,
+    "y": 144
+  },
+  "key": "Meditate",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e3 }}% -\u003e {{ e3NL }}%",
+      "{{ e1 }} -\u003e {{ e1NL }}"
+    ],
+    "label": [
+      "Damage Reduction",
+      "Health Restored"
+    ]
+  },
+  "maxrank": 5,
+  "vars": [
+    {
+      "coeff": [
+        0.3
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
 }
 
 {
@@ -22826,6 +26066,225 @@
       "dbId": 0,
       "link": "armor",
       "key": "f3"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    18.0,
+    17.0,
+    16.0,
+    15.0,
+    14.0
+  ],
+  "cooldownBurn": "18/17/16/15/14",
+  "costBurn": "75",
+  "costType": "Mana",
+  "name": "Dazzle",
+  "rangeBurn": "625",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    75,
+    75,
+    75,
+    75,
+    75
+  ],
+  "dbId": 0,
+  "description": "Taric emits a brilliant ball of prismatic light from his gemmed shield, stunning his target and damaging them based on how close he is to them.",
+  "sanitizedDescription": "Taric emits a brilliant ball of prismatic light from his gemmed shield, stunning his target and damaging them based on how close he is to them.",
+  "sanitizedTooltip": "Taric fires a prismatic sphere at a target enemy, stunning them for {{ e2 }} seconds and dealing between {{ e1 }} (+{{ a1 }}) and {{ e3 }} (+{{ a2 }}) magic damage. Dazzle\u0027s damage increases the closer Taric is to the target.",
+  "tooltip": "Taric fires a prismatic sphere at a target enemy, stunning them for {{ e2 }} seconds and dealing between {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e and {{ e3 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }})\u003c/span\u003e magic damage. Dazzle\u0027s damage increases the closer Taric is to the target.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        40.0,
+        70.0,
+        100.0,
+        130.0,
+        160.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.2,
+        1.3,
+        1.4,
+        1.5,
+        1.6
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        80.0,
+        140.0,
+        200.0,
+        260.0,
+        320.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "40/70/100/130/160",
+    "1.2/1.3/1.4/1.5/1.6",
+    "80/140/200/260/320"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "Dazzle.png",
+    "sprite": "spell10.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 48,
+    "y": 144
+  },
+  "key": "Dazzle",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e2 }} -\u003e {{ e2NL }}",
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e3 }} -\u003e {{ e3NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Stun Duration",
+      "Minimum Damage",
+      "Maximum Damage",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    625,
+    625,
+    625,
+    625,
+    625
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.4
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "cooldownBurn": "1",
+  "costBurn": "8",
+  "costType": "ManaperSecond",
+  "name": "Despair",
+  "rangeBurn": "300",
+  "resource": "{{ cost }} Mana per Second",
+  "cost": [
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "dbId": 0,
+  "description": "Overcome by anguish, nearby enemies lose a percentage of their maximum Health each second.",
+  "sanitizedDescription": "Overcome by anguish, nearby enemies lose a percentage of their maximum Health each second.",
+  "sanitizedTooltip": "Toggle: Nearby enemies take {{ e2 }} magic damage plus {{ e1 }} (+{{ a1 }})% of their maximum Health each second.",
+  "tooltip": "\u003cspan class\u003d\"colorFF9900\"\u003eToggle: \u003c/span\u003eNearby enemies take {{ e2 }} magic damage plus {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e% of their maximum Health each second.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        8.0,
+        12.0,
+        16.0,
+        20.0,
+        24.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "1/1.5/2/2.5/3",
+    "8/12/16/20/24"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "AuraofDespair.png",
+    "sprite": "spell0.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 48,
+    "y": 144
+  },
+  "key": "AuraofDespair",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }}% -\u003e {{ e1NL }}%",
+      "{{ e2 }} -\u003e {{ e2NL }}"
+    ],
+    "label": [
+      "Percent Health Damaged",
+      "Base Damage"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    300,
+    300,
+    300,
+    300,
+    300
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.01
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
     }
   ]
 }
@@ -23472,6 +26931,147 @@
 {
   "cooldown": [
     130.0,
+    110.0,
+    90.0
+  ],
+  "cooldownBurn": "130/110/90",
+  "costBurn": "100",
+  "costType": "Mana",
+  "name": "Life Form Disintegration Ray",
+  "rangeBurn": "1575",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    100,
+    100,
+    100
+  ],
+  "dbId": 0,
+  "description": "Vel\u0027Koz unleashes a channelled beam that follows the cursor for 2.5 seconds that deals damage and slows enemies.",
+  "sanitizedDescription": "Vel\u0027Koz unleashes a channelled beam that follows the cursor for 2.5 seconds that deals damage and slows enemies.",
+  "sanitizedTooltip": "Vel\u0027Koz channels a ray of energy that follows the cursor for 2.5 seconds, dealing Magic Damage up to a total of {{ e1 }} (+{{ a1 }}), and slows enemies hit by {{ e3 }}% for 1 second. Adds a stack of Organic Deconstruction every 0.5 seconds. Can be cancelled by recasting.",
+  "tooltip": "Vel\u0027Koz channels a ray of energy that follows the cursor for 2.5 seconds, dealing Magic Damage up to a total of {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e, and slows enemies hit by {{ e3 }}% for 1 second. Adds a stack of Organic Deconstruction every 0.5 seconds.\u003cbr\u003e\u003cbr\u003eCan be cancelled by recasting.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        500.0,
+        700.0,
+        900.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.0,
+        2.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        20.0,
+        20.0,
+        20.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        500.0,
+        500.0,
+        500.0
+      ]
+    },
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        0.1,
+        0.1,
+        0.1
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        4.0,
+        8.0,
+        12.0
+      ]
+    },
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        2.0,
+        2.0,
+        2.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "500/700/900",
+    "2",
+    "20",
+    "500",
+    "",
+    "0.1",
+    "4/8/12",
+    "",
+    "2"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "VelkozR.png",
+    "sprite": "spell12.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 192,
+    "y": 0
+  },
+  "key": "VelkozR",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ cooldown }} -\u003e {{ cooldownnNL }}"
+    ],
+    "label": [
+      "Total Damage",
+      "Cooldown"
+    ]
+  },
+  "maxrank": 3,
+  "range": [
+    1575,
+    1575,
+    1575
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.6
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    130.0,
     120.0,
     110.0
   ],
@@ -23582,6 +27182,147 @@
       "dbId": 0,
       "link": "spelldamage",
       "key": "a1"
+    }
+  ]
+}
+
+{
+  "cooldown": [
+    11.0,
+    11.0,
+    11.0,
+    11.0,
+    11.0
+  ],
+  "cooldownBurn": "11",
+  "costBurn": "55/60/65/70/75",
+  "costType": "Mana",
+  "name": "Tidecaller\u0027s Blessing",
+  "rangeBurn": "800",
+  "resource": "{{ cost }} Mana",
+  "cost": [
+    55,
+    60,
+    65,
+    70,
+    75
+  ],
+  "dbId": 0,
+  "description": "Empowers an allied champion for a short duration. The ally\u0027s basic attacks deal bonus magic damage and slow the target.",
+  "sanitizedDescription": "Empowers an allied champion for a short duration. The ally\u0027s basic attacks deal bonus magic damage and slow the target.",
+  "sanitizedTooltip": "Empowers an allied champion for {{ e5 }} seconds or {{ e4 }} basic attacks. The ally\u0027s basic attacks deal {{ e1 }} (+{{ a1 }}) bonus magic damage and slow the target by {{ e2 }}% (+{{ a2 }}%) for {{ e3 }} second.",
+  "tooltip": "Empowers an allied champion for {{ e5 }} seconds or {{ e4 }} basic attacks. The ally\u0027s basic attacks deal {{ e1 }} \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a1 }})\u003c/span\u003e bonus magic damage and slow the target by {{ e2 }}% \u003cspan class\u003d\"color99FF99\"\u003e(+{{ a2 }}%)\u003c/span\u003e for {{ e3 }} second.",
+  "effect": [
+    {
+      "dbId": 0
+    },
+    {
+      "dbId": 0,
+      "list": [
+        25.0,
+        40.0,
+        55.0,
+        70.0,
+        85.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        15.0,
+        20.0,
+        25.0,
+        30.0,
+        35.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        3.0,
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ]
+    },
+    {
+      "dbId": 0,
+      "list": [
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ]
+    }
+  ],
+  "effectBurn": [
+    "",
+    "25/40/55/70/85",
+    "15/20/25/30/35",
+    "1",
+    "3",
+    "6"
+  ],
+  "image": {
+    "dbId": 0,
+    "full": "NamiE.png",
+    "sprite": "spell7.png",
+    "group": "spell",
+    "h": 48,
+    "w": 48,
+    "x": 288,
+    "y": 48
+  },
+  "key": "NamiE",
+  "leveltip": {
+    "dbId": 0,
+    "effect": [
+      "{{ e1 }} -\u003e {{ e1NL }}",
+      "{{ e2 }}% -\u003e {{ e2NL }}%",
+      "{{ cost }} -\u003e {{ costnNL }}"
+    ],
+    "label": [
+      "Damage",
+      "Slow",
+      "Mana Cost"
+    ]
+  },
+  "maxrank": 5,
+  "range": [
+    800,
+    800,
+    800,
+    800,
+    800
+  ],
+  "vars": [
+    {
+      "coeff": [
+        0.2
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a1"
+    },
+    {
+      "coeff": [
+        0.05
+      ],
+      "dbId": 0,
+      "link": "spelldamage",
+      "key": "a2"
     }
   ]
 }

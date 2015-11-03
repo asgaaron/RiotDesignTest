@@ -40,13 +40,13 @@ public class RiotDesignTest {
             Logger.getLogger(RiotDesignTest.class.getName()).log(Level.SEVERE, "Error reading API Key", ex);
         }
         List<ChampionSpell> spells = getSpellList();
-//        printSpells(spells, "spellList.txt");
+        SpellPrinter.printSpells(spells, "spellList.txt");
         spells = removeNonDamageSpells(spells);
         DamageCalculator calculator = new DamageCalculator(spells);
 
 //		for dev purposes
-//        printSpells(spells, "filteredSpellList.txt");
-//        printProblemSpells(spells);
+        SpellPrinter.printSpells(spells, "filteredSpellList.txt");
+        SpellPrinter.printProblemSpells(spells);
         final String options[]
                 = {
                     "Modify Bonus Attack Damage", "Modify Base Attack Damage", "Modify Ability Power",
@@ -55,103 +55,70 @@ public class RiotDesignTest {
                 };
         MainMenu menu = new MainMenu(options);
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            try {
-                String header = "\nCurrent Stats: " + calculator.getBonusAD() + " Bonus Attack Damage, "
-                        + calculator.getBaseAD()
-                        + " Base Attack Damage, " + calculator.getAbilityPower() + " Ability Power, " + calculator.getcDR()
-                        + "% Cooldown Reduction";
-                System.out.println(header);
-                menu.displayOptions();
-                switch (menu.getInput()) {
-                    case 1: {
-                        System.out.println("Enter new bonus attack damage: ");
-                        double attackDamage = sc.nextDouble();
-                        System.out.println("");
-                        calculator.setBonusAD(attackDamage);
-                        break;
-                    }
-                    case 2: {
-                        System.out.println("Enter new base attack damage: ");
-                        double attackDamage = sc.nextDouble();
-                        System.out.println("");
-                        calculator.setBaseAD(attackDamage);
-                        break;
-                    }
-                    case 3: {
-                        System.out.println("Enter new Ability Power: ");
-                        double abilityPower = sc.nextDouble();
-                        System.out.println("");
-                        calculator.setAbilityPower(abilityPower);
-                        break;
-                    }
-                    case 4: {
-                        System.out.println("Enter new cooldown reduction (% value): ");
-                        double cdr = sc.nextDouble();
-                        System.out.println("");
-                        calculator.setcDR(cdr);
-                        break;
-                    }
-                    case 5: {
-                        Spell spell = calculator.calculateSingle();
-                        System.out.println("With the provided stats, the highest damage single cast spell is: "
-                                + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
-                        break;
-                    }
-                    case 6: {
-                        Spell spell = calculator.calculateDPS();
-                        System.out.println("With the provided stats, the highest damage spell over 10 seconds is: "
-                                + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
-                        break;
-                    }
-                    case 7: {
-                        System.exit(1);
-                    }
-                    default: {
-                        System.out.println("Oops! Please enter an option number!");
-                        menu.getInput();
-                    }
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(RiotDesignTest.class.getName()).log(Level.SEVERE, "UH OH GUY", ex);
-            }
-        }
+//        while (true) {
+//            try {
+//                String header = "\nCurrent Stats: " + calculator.getBonusAD() + " Bonus Attack Damage, "
+//                        + calculator.getBaseAD()
+//                        + " Base Attack Damage, " + calculator.getAbilityPower() + " Ability Power, " + calculator.getcDR()
+//                        + "% Cooldown Reduction";
+//                System.out.println(header);
+//                menu.displayOptions();
+//                switch (menu.getInput()) {
+//                    case 1: {
+//                        System.out.println("Enter new bonus attack damage: ");
+//                        double attackDamage = sc.nextDouble();
+//                        System.out.println("");
+//                        calculator.setBonusAD(attackDamage);
+//                        break;
+//                    }
+//                    case 2: {
+//                        System.out.println("Enter new base attack damage: ");
+//                        double attackDamage = sc.nextDouble();
+//                        System.out.println("");
+//                        calculator.setBaseAD(attackDamage);
+//                        break;
+//                    }
+//                    case 3: {
+//                        System.out.println("Enter new Ability Power: ");
+//                        double abilityPower = sc.nextDouble();
+//                        System.out.println("");
+//                        calculator.setAbilityPower(abilityPower);
+//                        break;
+//                    }
+//                    case 4: {
+//                        System.out.println("Enter new cooldown reduction (% value): ");
+//                        double cdr = sc.nextDouble();
+//                        System.out.println("");
+//                        calculator.setcDR(cdr);
+//                        break;
+//                    }
+//                    case 5: {
+//                        Spell spell = calculator.calculateSingle();
+//                        System.out.println("With the provided stats, the highest damage single cast spell is: "
+//                                + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
+//                        break;
+//                    }
+//                    case 6: {
+//                        Spell spell = calculator.calculateDPS();
+//                        System.out.println("With the provided stats, the highest damage spell over 10 seconds is: "
+//                                + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
+//                        break;
+//                    }
+//                    case 7: {
+//                        System.exit(1);
+//                    }
+//                    default: {
+//                        System.out.println("Oops! Please enter an option number!");
+//                        menu.getInput();
+//                    }
+//                }
+//            } catch (IOException ex) {
+//                Logger.getLogger(RiotDesignTest.class.getName()).log(Level.SEVERE, "UH OH GUY", ex);
+//            }
+//        }
 
     }
 
-    /**
-     * Function will print out a list of champion spells to a text file, for dev
-     * purposes
-     *
-     * @param spells the list of spells to be printed
-     * @param fileName name of the text file that will be produced
-     */
-    public static void printSpells(List<ChampionSpell> spells, String fileName) {
-        try {
-            FileWriter fileWriter
-                    = new FileWriter(fileName);
-
-            // Note that write() does not automatically
-            // append a newline character.
-            try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-                // Note that write() does not automatically
-                // append a newline character.
-                for (ChampionSpell spell : spells) {
-                    bufferedWriter.write(spell.toJSON());
-                    bufferedWriter.newLine();
-                    bufferedWriter.newLine();
-                }
-
-                // Always close files.
-            }
-        } catch (IOException ex) {
-            System.out.println(
-                    "Error writing to file '"
-                    + fileName + "'");
-            // Or we could just do this:
-            // ex.printStackTrace();
-        }
-    }
 
     /**
      * Calls Riot API to retrieve a list of all the champions in the game.
@@ -221,20 +188,4 @@ public class RiotDesignTest {
         return spells;
     }
 
-    /**
-     * Function that will print all damaging spells that don't calculate their
-     * damage using e1 + a1
-     *
-     * @param spells
-     */
-    public static void printProblemSpells(List<ChampionSpell> spells) {
-        Iterator<ChampionSpell> i = spells.iterator();
-        while (i.hasNext()) {
-            ChampionSpell spell = i.next();
-            if (spell.getSanitizedTooltip().contains("{{ e1 }} (+{{ a1 }})")) {
-                i.remove();
-            }
-        }
-        printSpells(spells, "problemSpells.txt");
-    }
 }
