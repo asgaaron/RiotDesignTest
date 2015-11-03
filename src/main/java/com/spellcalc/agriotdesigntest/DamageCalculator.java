@@ -27,59 +27,55 @@ public class DamageCalculator {
      * damage
      * @throws IOException
      */
-    Spell calculateSingle() throws IOException {
+    Spell calculateSingleHighest() throws IOException {
         ChampionSpell highest = null;
         double highestDamage = 0;
 
         //parse through sanitized tooltip to find damage calculation
         for (ChampionSpell spell : spells) {
-            int maxRankIndex = spell.getMaxrank() - 1;
-            double damage = 0;
-            if (null == spell.getEffect()) {
-                System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have an effect field...results may be skewed!");
-            } else if (spell.getEffect().get(1) == null) {
-                System.out.println(spell.getName() + "'s effect list is blank, add it to the problem spells!");
-            } //begin parsing for common patterns
-            else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) magic damage")
-                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) physical damage")) {
-                damage = spell.getEffect().get(1).get(maxRankIndex);
-            } else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a2 }}) bonus physical damage")) {
-                damage = spell.getEffect().get(2).get(maxRankIndex);
-                damage += spell.getVars().get(1).getCoeff().get(0) * bonusAD;
-            } else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) magic damage")
-                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) physical damage")) {
-                damage = spell.getEffect().get(1).get(maxRankIndex);
-                damage += spell.getVars().get(1).getCoeff().get(0) * abilityPower;
-                damage += spell.getVars().get(2).getCoeff().get(0) * bonusAD;
-            } else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a1 }}) magic damage") 
-                    | spell.getSanitizedTooltip().contains("{{ e2 }} (+{{ a1 }}) physical damage")) {
-                damage 
-            }
+            double damage = getSpellDamage(spell);
 
-            //add scaling damage
-            if (null != spell.getVars()) {
-                for (SpellVars var : spell.getVars()) {
-                    switch (var.getLink()) {
-                        case "spelldamage":
-                            damage += spell.getVars().get(0).getCoeff().get(0) * abilityPower;
-                            break;
-                        case "attackdamage":
-                            damage += spell.getVars().get(0).getCoeff().get(0) * (baseAD + bonusAD);
-                            break;
-                        case "bonusattackdamage":
-                            damage += spell.getVars().get(0).getCoeff().get(0) * bonusAD;
-                            break;
-                    }
-                }
-            }
-
+            //is this spell's damage the new highest?
             if (damage > highestDamage) {
+                //if so, crown the new highest damage spell
                 highestDamage = damage;
                 highest = spell;
             }
         }
         Spell spell = new Spell(highest, highestDamage);
         return spell;
+    }
+
+    private double getSpellDamage(ChampionSpell spell) {
+        double damage = 0;
+        int maxRankIndex = spell.getMaxrank() - 1;
+        if (null == spell.getEffect()) {
+            System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have an effect field...base damages are probably missing!");
+        }
+        if (null == spell.getVars()) {
+            System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have a var field...scaling damages are probably missing!");
+        }
+        else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) magic damage")
+                | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) physical damage")) {
+            damage = spell.getEffect().get(1).get(maxRankIndex);
+            damage += geta1Coeff(spell);
+        } else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a2 }}) bonus physical damage")) {
+            damage = spell.getEffect().get(2).get(maxRankIndex);
+            damage += spell.getVars().get(1).getCoeff().get(0) * bonusAD;
+        } else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) magic damage")
+                | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) physical damage")) {
+            damage = spell.getEffect().get(1).get(maxRankIndex);
+            damage += spell.getVars().get(1).getCoeff().get(0) * abilityPower;
+            damage += spell.getVars().get(2).getCoeff().get(0) * bonusAD;
+        } else if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a1 }}) magic damage")
+                | spell.getSanitizedTooltip().contains("{{ e2 }} (+{{ a1 }}) physical damage")) {
+            damage = spell.getEffect().get(2).get(maxRankIndex);
+        }
+        return damage;
+    }
+
+    private double geta1Coeff(ChampionSpell spell) {
+        return spell.getVars().get(1).getCoeff().get(1);
     }
 
     //need to update this with work from above
