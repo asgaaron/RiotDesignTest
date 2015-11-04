@@ -50,15 +50,24 @@ public class DamageCalculator {
         double damage = 0;
         int maxRankIndex = spell.getMaxrank() - 1;
 
-        if (checkEffect(spell)) {
-            if (checkVars(spell)) {
-                if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) magic damage"))
-                {
+        if (checkEffectExist(spell)) {
+            if (checkVarsExist(spell)) {
+                if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) magic damage")) {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += spell.getVars().get(1).getCoeff().get(1) * abilityPower;
                 } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) physical damage")) {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += spell.getVars().get(1).getCoeff().get(1) * bonusAD;
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += spell.getVars().get(1).getCoeff().get(1) * abilityPower;
+                    damage += spell.getVars().get(2).getCoeff().get(1) * bonusAD;
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) magic damage")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += spell.getVars().get(1).getCoeff().get(1) * abilityPower;
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) (+{{ a1 }}) physical damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
                 }
             }
         }
@@ -72,7 +81,7 @@ public class DamageCalculator {
         return false;
     }
 
-    private boolean checkVars(ChampionSpell spell) {
+    private boolean checkVarsExist(ChampionSpell spell) {
         if (null == spell.getVars()) {
             System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have a var field...scaling damages are missing!");
             return false;
@@ -80,7 +89,7 @@ public class DamageCalculator {
         return true;
     }
 
-    private boolean checkEffect(ChampionSpell spell) {
+    private boolean checkEffectExist(ChampionSpell spell) {
         if (null == spell.getEffect()) {
             System.out.println("Uh oh, it looks like " + spell.getName() + "'s base damages are missing!");
             return false;
@@ -88,8 +97,28 @@ public class DamageCalculator {
         return true;
     }
 
-    private double geta1Coeff(ChampionSpell spell) {
-        return spell.getVars().get(1).getCoeff().get(1);
+    private double getScalingStat(List<SpellVars> vars, String key) {
+        boolean found = false;
+        int index = 1;
+        while (!found) {
+            if (vars.get(index).getKey() == null ? key == null : vars.get(index).getKey().equals(key)) {
+                switch (vars.get(index).getLink()) {
+                    case "bonusattackdamage":
+                        return vars.get(index).getCoeff().get(vars.get(index).getCoeff().size()) * bonusAD;
+                    case "spelldamage":
+                        return vars.get(index).getCoeff().get(vars.get(index).getCoeff().size()) * abilityPower;
+                    case "attackdamage":
+                        return vars.get(index).getCoeff().get(vars.get(index).getCoeff().size()) * getTotalAD();
+                    case "health":
+                        return vars.get(index).getCoeff().get(vars.get(index).getCoeff().size()) * health;
+                }
+            } else {
+                System.out.println("Couldn't find a scaling stat!");
+                return 0;
+            }
+        }
+        //this should never get hit but is needed to satisfy return statement requirement
+        return 0;
     }
 
     //need to update this with work from above
