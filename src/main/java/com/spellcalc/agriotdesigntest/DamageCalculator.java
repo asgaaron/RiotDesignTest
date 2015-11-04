@@ -111,6 +111,7 @@ public class DamageCalculator {
                         return vars.get(index).getCoeff().get(vars.get(index).getCoeff().size()) * getTotalAD();
                     case "health":
                         return vars.get(index).getCoeff().get(vars.get(index).getCoeff().size()) * health;
+                    default: return 0;
                 }
             } else {
                 System.out.println("Couldn't find a scaling stat!");

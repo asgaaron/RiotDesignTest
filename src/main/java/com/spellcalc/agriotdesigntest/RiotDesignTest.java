@@ -172,6 +172,7 @@ public class RiotDesignTest {
             boolean damage = false;
             if (spell.getSanitizedTooltip().toLowerCase().contains("bonus magic damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("bonus physical damage")
+                    | spell.getSanitizedTooltip().toLowerCase().contains("3rd attack")
                     | spell.getName().equals("Mocking Shout")
                     | spell.getName().equals("Inspire")
                     | spell.getName().equals("Bloodlust")) {
