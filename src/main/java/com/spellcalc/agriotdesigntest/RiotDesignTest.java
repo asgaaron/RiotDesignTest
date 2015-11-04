@@ -42,11 +42,11 @@ public class RiotDesignTest {
         List<ChampionSpell> spells = getSpellList();
         SpellPrinter.printSpells(spells, "spellList.txt");
         spells = removeNonDamageSpells(spells);
-        DamageCalculator calculator = new DamageCalculator(spells);
-
-//		for dev purposes
         SpellPrinter.printSpells(spells, "filteredSpellList.txt");
         SpellPrinter.printProblemSpells(spells);
+
+        DamageCalculator calculator = new DamageCalculator(spells);
+
         final String options[]
                 = {
                     "Modify Bonus Attack Damage", "Modify Base Attack Damage", "Modify Ability Power",
@@ -119,7 +119,6 @@ public class RiotDesignTest {
 
     }
 
-
     /**
      * Calls Riot API to retrieve a list of all the champions in the game.
      * Extracts ChampionSpells
@@ -148,8 +147,8 @@ public class RiotDesignTest {
     }
 
     /**
-     * Function that removes non-damaging spells from the a list of
-     * ChampionSpell objects
+     * Function that removes spells from the a list of ChampionSpell objects in
+     * an attempt to return a list of single-cast damage spells
      *
      * @param spells a list of ChampionSpell objects
      * @return a list of ChampionSpell objects without damaging spells
@@ -160,14 +159,19 @@ public class RiotDesignTest {
             ChampionSpell spell = i.next();
             List<String> labels = spell.getLeveltip().getLabel();
             boolean damage = false;
-            for (String label : labels) {
-                if (label.contains("damage") | label.contains("Damage")) {
-                    damage = true;
-                    break;
-                }
-            }
-            if (!damage) {
+            if (spell.getSanitizedTooltip().toLowerCase().contains("bonus magic damage")
+                    | spell.getSanitizedTooltip().toLowerCase().contains("bonus physical damage")) {
                 i.remove();
+            } else {
+                for (String label : labels) {
+                    if (label.contains("damage") | label.contains("Damage")) {
+                        damage = true;
+                        break;
+                    }
+                }
+                if (!damage) {
+                    i.remove();
+                }
             }
         }
         return spells;

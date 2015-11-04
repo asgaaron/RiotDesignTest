@@ -51,14 +51,11 @@ public class SpellPrinter {
         while (i.hasNext()) {
             ChampionSpell spell = i.next();
             if (spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) magic damage") 
-                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) physical damage")
-                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a2 }}) bonus physical damage")
-                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) magic damage") 
-                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) physical damage")) {
+                    |spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) physical damage")) {
                 i.remove();
             }
         }
         printSpells(spells, "problemSpells.txt");
     }
-    
+
 }
