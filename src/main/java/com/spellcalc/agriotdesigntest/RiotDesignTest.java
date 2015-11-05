@@ -54,7 +54,7 @@ public class RiotDesignTest {
                     "Calculate highest DPS spell over 10 seconds", "Exit"
                 };
         MainMenu menu = new MainMenu(options);
-        
+
 //        run(calculator, menu);
     }
 
@@ -170,10 +170,18 @@ public class RiotDesignTest {
             ChampionSpell spell = i.next();
             List<String> labels = spell.getLeveltip().getLabel();
             boolean damage = false;
-            if (spell.getSanitizedTooltip().toLowerCase().contains("bonus magic damage")
+            if (spell.getRangeBurn().toLowerCase().contains("self")) {
+                i.remove();
+            } else if (spell.getSanitizedTooltip().toLowerCase().contains("bonus magic damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("bonus physical damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("3rd attack")
+                    | spell.getName().equals("Living Shadow")
+                    | spell.getName().equals("Children of the Grave")
+                    | spell.getName().equals("Hyper Charge")
                     | spell.getName().equals("Mocking Shout")
+                    | spell.getName().equals("Paragon of Demacia")
+                    | spell.getName().equals("Diplomatic Immunity")
+                    | spell.getName().equals("Valor")
                     | spell.getName().equals("Inspire")
                     | spell.getName().equals("Bloodlust")) {
                 i.remove();
