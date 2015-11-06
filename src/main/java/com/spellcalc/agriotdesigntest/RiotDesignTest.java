@@ -49,8 +49,13 @@ public class RiotDesignTest {
 
         final String options[]
                 = {
-                    "Modify Bonus Attack Damage", "Modify Base Attack Damage", "Modify Ability Power",
-                    "Modify Cooldown Reduction", "Modify Health", "Calculate highest single cast damage",
+                    "Modify Bonus Attack Damage",
+                    "Modify Base Attack Damage",
+                    "Modify Ability Power",
+                    "Modify Cooldown Reduction",
+                    "Modify Health",
+                    "Modify Mana",
+                    "Calculate highest single cast damage",
                     "Exit"
                 };
         MainMenu menu = new MainMenu(options);
@@ -62,10 +67,13 @@ public class RiotDesignTest {
         Scanner sc = new Scanner(System.in);
         while (true) {
             try {
-                String header = "\nCurrent Stats: " + calculator.getBonusAD() + " Bonus Attack Damage, "
-                        + calculator.getBaseAD()
-                        + " Base Attack Damage, " + calculator.getAbilityPower() + " Ability Power, " + calculator.getcDR()
-                        + "% Cooldown Reduction, " + calculator.getHealth() + " HP";
+                String header = "\nCurrent Stats: "
+                        + calculator.getBonusAD() + " Bonus Attack Damage, "
+                        + calculator.getBaseAD() + " Base Attack Damage, "
+                        + calculator.getAbilityPower() + " Ability Power, "
+                        + calculator.getcDR() + "% Cooldown Reduction, "
+                        + calculator.getHealth() + " HP, "
+                        + calculator.getMana() + " Mana";
                 System.out.println(header);
                 menu.displayOptions();
                 switch (menu.getInput()) {
@@ -105,12 +113,19 @@ public class RiotDesignTest {
                         break;
                     }
                     case 6: {
+                        System.out.println("Enter new mana value: ");
+                        double mana = sc.nextDouble();
+                        System.out.println("");
+                        calculator.setMana(mana);
+                        break;
+                    }
+                    case 7: {
                         Spell spell = calculator.calculateSingleHighest();
                         System.out.println("With the provided stats, the highest damage single cast spell is: "
                                 + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
                         break;
                     }
-                    case 7: {
+                    case 8: {
                         System.exit(1);
                     }
                     default: {

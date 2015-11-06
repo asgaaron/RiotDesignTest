@@ -3,6 +3,7 @@ package com.spellcalc.agriotdesigntest;
 import com.robrua.orianna.type.dto.staticdata.ChampionSpell;
 import com.robrua.orianna.type.dto.staticdata.SpellVars;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public class DamageCalculator {
 
-    private double abilityPower, baseAD, health, cDR, bonusAD;
+    private double abilityPower, baseAD, health, cDR, bonusAD, mana;
     List<ChampionSpell> spells;
 
     DamageCalculator(List<ChampionSpell> spells) {
@@ -256,10 +257,19 @@ public class DamageCalculator {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += getScalingStat(spell, "a1");
                     damage += getScalingStat(spell, "f1");
+                    if (spell.getName().equals("Overload")) {
+                        double[] vars = {.02, .025, .03, .035, .04};
+                        damage += vars[maxRankIndex] * mana;
+                    } else if (spell.getName().equals("Spell Flux")) {
+                        damage += .02 * mana;
+                    }
                 } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) (+{{ f1 }}) magic damage")) {
                     damage = spell.getEffect().get(2).get(maxRankIndex);
                     damage += getScalingStat(spell, "a1");
                     damage += getScalingStat(spell, "f1");
+                    if (spell.getName().equals("Rune Prison")) {
+                        damage += .025 * mana;
+                    }
                 }
             }
         }
@@ -423,5 +433,19 @@ public class DamageCalculator {
      */
     public double getTotalAD() {
         return baseAD + bonusAD;
+    }
+
+    /**
+     * @return the mana
+     */
+    public double getMana() {
+        return mana;
+    }
+
+    /**
+     * @param mana the mana to set
+     */
+    public void setMana(double mana) {
+        this.mana = mana;
     }
 }
