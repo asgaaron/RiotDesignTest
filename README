@@ -11,6 +11,13 @@ However, the calculator does not know anything about its target or the current
 state of the champion casting the spell. Things like %health, current health are
 not taken into calculation.
 
+Notes:
+Spell damages are always calculated at their highest possible values. For 
+example, Taric's Dazzle is calculated as if he casted it from 0 range, 
+Morgana's Tormented Soil is calculated as if the target has 1% health,Sion's 
+Decimating Smash uses the fully charged spell damage, and Kassadin's Riftwalk 
+is on its highest stack.
+
 Features planned:
 
 Addition of a customizable target
@@ -18,6 +25,11 @@ Addition of a customizable target
 // This will make calculation MUCH more accurate. For spells that 
 // rely heavily on target's health, such as Mundo's Infected Cleaver, minimum
 // damage is currently used.
+
+Customizable spell levels
+// Currently all spell damage is calculated at the spell's max rank. Adding 
+// customizable spell levels would allow calculation for scenarios like best
+// level-one spell, best level 6 spell, etc.
 
 Ability to ask about context-specific spells
 // E.g. 'How many of Syndra's spheres are around when she uses her ult?' or 

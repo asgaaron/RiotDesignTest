@@ -3,6 +3,10 @@ package com.spellcalc.agriotdesigntest;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ *
+ * @author asgaaron
+ */
 public class MainMenu {
 
     String options[];

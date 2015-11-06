@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author Aaron
+ * @author asgaaron
  */
 public class SpellPrinter {
 
@@ -55,15 +55,22 @@ public class SpellPrinter {
                     | spell.getName().equals("Infected Cleaver")
                     | spell.getName().equals("Venomous Bite / Neurotoxin")
                     | spell.getName().equals("Furious Bite / Tunnel")
+                    | spell.getName().equals("Riftwalk")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) physical damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a1 }}) magic damage")
+                    | spell.getSanitizedTooltip().toLowerCase().contains("dealing Magic Damage up to a total of {{ e1 }} (+{{ a1 }})".toLowerCase())
+                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ f3 }}) (+{{ a2 }}) physical damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ f2 }}) magic damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a2 }}) (+{{ a1 }}) plus 8%")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} (+{{ a2 }})")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e4 }} (+{{ f2 }}) physical damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ f1 }}) physical damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ a1 }}) true damage")
+                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} magic damage plus {{ e1 }} (+{{ a1 }})% of their maximum Health each second".toLowerCase())
+                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e3 }} (+{{ a2 }}) magic damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ f1 }}) magic damage")
+                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e2 }} physical damage plus {{ e1 }} (+{{ a1 }}) (+{{ f1 }}) per stack of Deadly Venom".toLowerCase())
+                    | spell.getSanitizedTooltip().toLowerCase().contains("{{ e1 }} (+{{ f1 }}) plus 15% of target")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ f3 }} physical damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e5 }} (+{{ f1 }}) (+{{ a1 }}) magic damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("{{ e3 }} (+{{ f1 }} [15% of bonus Health]) magic damage".toLowerCase())

@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Aaron
+ * @author asgaaron
  */
 public class RiotDesignTest {
 
@@ -55,7 +55,7 @@ public class RiotDesignTest {
                 };
         MainMenu menu = new MainMenu(options);
 
-//        run(calculator, menu);
+        run(calculator, menu);
     }
 
     private static void run(DamageCalculator calculator, MainMenu menu) {
@@ -176,6 +176,7 @@ public class RiotDesignTest {
                     | spell.getSanitizedTooltip().toLowerCase().contains("bonus physical damage")
                     | spell.getSanitizedTooltip().toLowerCase().contains("3rd attack")
                     | spell.getName().equals("Living Shadow")
+                    | spell.getName().equals("Unbreakable")
                     | spell.getName().equals("Children of the Grave")
                     | spell.getName().equals("Consume")
                     | spell.getName().equals("Sentinel")

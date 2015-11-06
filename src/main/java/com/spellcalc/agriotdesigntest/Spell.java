@@ -2,6 +2,10 @@ package com.spellcalc.agriotdesigntest;
 
 import com.robrua.orianna.type.dto.staticdata.ChampionSpell;
 
+/**
+ *
+ * @author asgaaron
+ */
 class Spell {
 
     ChampionSpell spell;

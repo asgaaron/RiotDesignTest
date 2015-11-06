@@ -5,6 +5,10 @@ import com.robrua.orianna.type.dto.staticdata.SpellVars;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ *
+ * @author asgaaron
+ */
 public class DamageCalculator {
 
     private double abilityPower, baseAD, health, cDR, bonusAD;
@@ -56,8 +60,25 @@ public class DamageCalculator {
                         | spell.getName().equals("Venomous Bite / Neurotoxin")) {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += spell.getEffect().get(2).get(maxRankIndex);
+                } else if (spell.getName().equals("Contaminate")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    double stackDamage = spell.getEffect().get(2).get(maxRankIndex);
+                    stackDamage += getScalingStat(spell.getVars(), "a1");
+                    stackDamage += getScalingStat(spell.getVars(), "f1");
+                    stackDamage *= 5;
+                    damage += stackDamage;
+                } else if (spell.getName().equals("Riftwalk")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f2");
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    double stackDamage = spell.getEffect().get(3).get(maxRankIndex);
+                    stackDamage += getScalingStat(spell.getVars(), "f1");
+                    stackDamage += getScalingStat(spell.getVars(), "f3");
+                    stackDamage *= spell.getEffect().get(6).get(maxRankIndex);
+                    damage += stackDamage;
                 } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) magic damage")
-                        | sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) true damage")) {
+                        | sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) true damage")
+                        | sanitizedContains(spell, "dealing Magic Damage up to a total of {{ e1 }} (+{{ a1 }})")) {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += getScalingStat(spell.getVars(), "a1");
                 } else if (spell.getName().equals("Infected Cleaver")) {
@@ -71,8 +92,16 @@ public class DamageCalculator {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += getScalingStat(spell.getVars(), "f1");
                 } else if (sanitizedContains(spell, "{{ f3 }} physical damage")) {
-                    damage = 0;
+                    damage = getScalingStat(spell.getVars(), "f3");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f3 }}) (+{{ a2 }}) physical damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += getScalingStat(spell.getVars(), "f3");
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e2 }} magic damage plus {{ e1 }} (+{{ a1 }})% of their maximum Health each second")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) plus 15% of target")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
                 } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) [2.5% of Braum")) {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                 } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) and {{ e2 }}% (+{{ a1 }}) of the target")) {
@@ -84,7 +113,8 @@ public class DamageCalculator {
                 } else if (sanitizedContains(spell, "{{ e5 }} (+{{ a1 }}) magic damage")) {
                     damage = spell.getEffect().get(5).get(maxRankIndex);
                     damage += getScalingStat(spell.getVars(), "a1");
-                } else if (sanitizedContains(spell, "{{ e3 }} (+{{ a2 }}).")) {
+                } else if (sanitizedContains(spell, "{{ e3 }} (+{{ a2 }}).")
+                        | sanitizedContains(spell, "{{ e3 }} (+{{ a2 }}) magic damage")) {
                     damage = spell.getEffect().get(3).get(maxRankIndex);
                     damage += getScalingStat(spell.getVars(), "a2");
                 } else if (sanitizedContains(spell, "{{ e2 }} (+{{ f1 }}) (+{{ f2 }}) magic damage")) {
@@ -389,5 +419,4 @@ public class DamageCalculator {
     public double getTotalAD() {
         return baseAD + bonusAD;
     }
-
 }
