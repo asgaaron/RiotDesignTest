@@ -21,14 +21,14 @@ is on its highest stack.
 All of Lux's spells are missing effect fields from the Riot API, base damages 
 will have to be hard-coded.
 
-Ryze, Garen are missing Var fields, spell calculation may be inaccurate unless 
-hard-coded values are added.
+Extra damage from champion's passives (e.g. Lux and Velkoz's passive abilites) 
+is not taken into consideration.
 
 Features planned:
 
 Addition of a customizable target
 // Target's stats including Armor, MR, CurrentHealth, MaxHealth, AD, and AP.
-// This will make calculation MUCH more accurate. For spells that 
+// This will make real damage calculation MUCH more accurate. For spells that 
 // rely heavily on target's health, such as Mundo's Infected Cleaver, minimum
 // damage is currently used.
 
