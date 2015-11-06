@@ -18,6 +18,12 @@ Morgana's Tormented Soil is calculated as if the target has 1% health,Sion's
 Decimating Smash uses the fully charged spell damage, and Kassadin's Riftwalk 
 is on its highest stack.
 
+All of Lux's spells are missing effect fields from the Riot API, base damages 
+will have to be hard-coded.
+
+Ryze, Garen are missing Var fields, spell calculation may be inaccurate unless 
+hard-coded values are added.
+
 Features planned:
 
 Addition of a customizable target
@@ -44,3 +50,7 @@ Add functionality for calculating DPS
 // Currently, CDR is a little useless. A 'Calculate DPS' function could 
 // calculate damage done over user-defined periods of time, taking spell 
 // cooldown into consideration.
+
+Add functionality to calculate the damage of a specified spell
+// Gets the name of a spell from the user, then calculates spell damage and 
+// prints to the screen

@@ -40,10 +40,10 @@ public class RiotDesignTest {
             Logger.getLogger(RiotDesignTest.class.getName()).log(Level.SEVERE, "Error reading API Key", ex);
         }
         List<ChampionSpell> spells = getSpellList();
-        SpellPrinter.printSpells(spells, "spellList.txt");
+//        SpellPrinter.printSpells(spells, "spellList.txt");
         spells = removeNonDamageSpells(spells);
-        SpellPrinter.printSpells(spells, "filteredSpellList.txt");
-        SpellPrinter.printProblemSpells(spells);
+//        SpellPrinter.printSpells(spells, "filteredSpellList.txt");
+//        SpellPrinter.printProblemSpells(spells);
 
         DamageCalculator calculator = new DamageCalculator(spells);
 
@@ -51,7 +51,7 @@ public class RiotDesignTest {
                 = {
                     "Modify Bonus Attack Damage", "Modify Base Attack Damage", "Modify Ability Power",
                     "Modify Cooldown Reduction", "Modify Health", "Calculate highest single cast damage",
-                    "Calculate highest DPS spell over 10 seconds", "Exit"
+                    "Exit"
                 };
         MainMenu menu = new MainMenu(options);
 
@@ -65,7 +65,7 @@ public class RiotDesignTest {
                 String header = "\nCurrent Stats: " + calculator.getBonusAD() + " Bonus Attack Damage, "
                         + calculator.getBaseAD()
                         + " Base Attack Damage, " + calculator.getAbilityPower() + " Ability Power, " + calculator.getcDR()
-                        + "% Cooldown Reduction" + calculator.getHealth() + " HP";
+                        + "% Cooldown Reduction, " + calculator.getHealth() + " HP";
                 System.out.println(header);
                 menu.displayOptions();
                 switch (menu.getInput()) {
@@ -111,12 +111,6 @@ public class RiotDesignTest {
                         break;
                     }
                     case 7: {
-                        Spell spell = calculator.calculateDPS();
-                        System.out.println("With the provided stats, the highest damage spell over 10 seconds is: "
-                                + spell.getSpell().getName() + ", doing " + spell.getDamage() + " damage!");
-                        break;
-                    }
-                    case 8: {
                         System.exit(1);
                     }
                     default: {
