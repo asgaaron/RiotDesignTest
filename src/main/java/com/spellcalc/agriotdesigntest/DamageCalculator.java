@@ -52,131 +52,185 @@ public class DamageCalculator {
 
         if (checkEffectExist(spell)) {
             if (checkVarsExist(spell)) {
-                if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) magic damage")
+                if (spell.getName().equals("Neurotoxin / Venomous Bite")
+                        | spell.getName().equals("Venomous Bite / Neurotoxin")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += spell.getEffect().get(2).get(maxRankIndex);
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) magic damage")
                         | sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) true damage")) {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += getScalingStat(spell.getVars(), "a1");
-                    if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) physical damage")
-                            | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) true damage")) {
-                        damage = spell.getEffect().get(1).get(maxRankIndex);
-                        damage += getScalingStat(spell.getVars(), "f1");
-                        if (sanitizedContains(spell, "{{ f3 }} physical damage")) {
-                            damage = 0;
-                            damage += getScalingStat(spell.getVars(), "f3");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) physical damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e4 }} (+{{ a1 }}) magic damage")) {
-                            damage = spell.getEffect().get(4).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e2 }} (+{{ f2 }}) physical damage")) {
-                            damage = spell.getEffect().get(2).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f2");
-                        } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a2 }})")) {
-                            damage = spell.getEffect().get(2).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a2");
-                        } else if (sanitizedContains(spell, "{{ e3 }} (+{{ f1 }}) physical damage")) {
-                            damage = spell.getEffect().get(3).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f1");
-                            if (spell.getName().equals("Gatling Gun")) {
-                                damage *= 4;
-                            }
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) magic damage")
-                                | sanitizedContains(spell, "{{ e2 }} (+{{ a2 }}) (+{{ a1 }}) plus 8% of her target\\u0027s maximum Health")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                            damage += getScalingStat(spell.getVars(), "a2");
-                        } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) magic damage")
-                                | sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) physical damage")
-                                | sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) plus {{ e4 }}% of the target")) {
-                            damage = spell.getEffect().get(2).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) (+{{ a1 }}) physical damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                        } else if (sanitizedContains(spell, "{{ e4 }}% of the enemy\\u0027s maximum health (+{{ a1 }}) as magic damage")) {
-                            damage = getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) (+{{ a1 }}) physical damage")
-                                | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) (+{{ a1 }}) magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f1");
-                            damage += getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f2 }}) magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f2");
-                        } else if (sanitizedContains(spell, "{{ e2 }} (+{{ f1 }}) physical damage")) {
-                            damage = spell.getEffect().get(2).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f2");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a2 }}) magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a2");
-                            if (spell.getName().equals("The Equalizer")) {
-                                damage *= 5;
-                            }
-                        } else if (sanitizedContains(spell, "{{ e4 }} (+{{ f2 }}) physical damage")) {
-                            damage = spell.getEffect().get(4).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f2");
-                        } else if (sanitizedContains(spell, "{{ e4 }} (+{{ a2 }}) magic damage")) {
-                            damage = spell.getEffect().get(4).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a2");
-                        } else if (sanitizedContains(spell, "{{ e7 }} (+{{ a2 }}) magic damage")) {
-                            damage = spell.getEffect().get(7).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a2");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }})% of the target")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                        } else if (sanitizedContains(spell, "{{ a1 }} plus {{ e2 }}% of all Magic and Physical Damage dealt to the target by Zed and his shadows while the mark was active")) {
-                            damage = getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e3 }} (+{{ a1 }}) ")) {
-                            damage = spell.getEffect().get(3).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ f1 }}) physical damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                            damage += getScalingStat(spell.getVars(), "f1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a2 }}) (+{{ a1 }}) magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                            damage += getScalingStat(spell.getVars(), "a2");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f2 }}) (+{{ f1 }}) magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "f2");
-                            damage += getScalingStat(spell.getVars(), "f1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) plus {{ e3 }}% of the target\\u0027s maximum Health as magic damage")
-                                | sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) plus 80% of his target")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ f1 }} (+{{ a1 }}) magic damage")) {
-                            damage = getScalingStat(spell.getVars(), "f1");
-                            damage += getScalingStat(spell.getVars(), "a1");
-                        } else if (sanitizedContains(spell, "{{ e1 }} {{ f3 }} (+{{ a1 }}) area magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                            damage += getScalingStat(spell.getVars(), "f3");
-                        } else if (sanitizedContains(spell, "{{ e6 }} (+{{ a2 }}) magic damage")) {
-                            damage = spell.getEffect().get(6).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a2");
-                            if (spell.getName().equals("Tormented Soil")) {
-                                damage *= 5;
-                            }
-                        } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ f1 }}) magic damage")) {
-                            damage = spell.getEffect().get(1).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                            damage += getScalingStat(spell.getVars(), "f1");
-                        } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) (+{{ f1 }}) magic damage")) {
-                            damage = spell.getEffect().get(2).get(maxRankIndex);
-                            damage += getScalingStat(spell.getVars(), "a1");
-                            damage += getScalingStat(spell.getVars(), "f1");
-                        }
+                } else if (spell.getName().equals("Infected Cleaver")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                } else if (spell.getName().equals("Furious Bite / Tunnel")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex) * 2 * getTotalAD();
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) physical damage")
+                        | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) true damage")
+                        | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) [6%")
+                        | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                } else if (sanitizedContains(spell, "{{ f3 }} physical damage")) {
+                    damage = 0;
+                    damage += getScalingStat(spell.getVars(), "f3");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) [2.5% of Braum")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) and {{ e2 }}% (+{{ a1 }}) of the target")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) ({{ e2 }}% of bonus Attack Damage) physical damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                } else if (sanitizedContains(spell, "{{ e5 }} (+{{ a1 }}) magic damage")) {
+                    damage = spell.getEffect().get(5).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e3 }} (+{{ a2 }}).")) {
+                    damage = spell.getEffect().get(3).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ f1 }}) (+{{ f2 }}) magic damage")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                    damage += getScalingStat(spell.getVars(), "f2");
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) (+{{ a2 }}) physical damage")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e5 }} (+{{ f1 }}) (+{{ a1 }}) magic damage")) {
+                    damage = spell.getEffect().get(5).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e3 }} (+{{ f1 }} [{{ e4 }}% of bonus Health]) physical damage")) {
+                    damage = spell.getEffect().get(3).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) physical damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e4 }} (+{{ a1 }}) magic damage")) {
+                    damage = spell.getEffect().get(4).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ f2 }}) physical damage")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f2");
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a2 }})")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }})(+{{ a1 }}) physical damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    if (spell.getName().equals("Bullet Time")) {
+                        damage *= 8;
                     }
+                } else if (sanitizedContains(spell, "{{ e4 }} (+{{ f2 }}) (+{{ a2 }}) physical damage")) {
+                    damage = spell.getEffect().get(4).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a2");
+                    damage += getScalingStat(spell.getVars(), "f2");
+                    if (spell.getName().equals("Double Up")) {
+                        damage *= 1.5;
+                    }
+                } else if (sanitizedContains(spell, "{{ e4 }} damage per second")) {
+                    damage = spell.getEffect().get(4).get(maxRankIndex) * 4;
+                } else if (sanitizedContains(spell, "{{ e3 }} (+{{ f1 }}) physical damage")
+                        | sanitizedContains(spell, "{{ e3 }} (+{{ f1 }} [15% of bonus Health]) magic damage")) {
+                    damage = spell.getEffect().get(3).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                    if (spell.getName().equals("Gatling Gun")) {
+                        damage *= 4;
+                    }
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) magic damage")
+                        | sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ a2 }}) physical damage")
+                        | sanitizedContains(spell, "{{ e2 }} (+{{ a2 }}) (+{{ a1 }}) plus 8% of her target\\u0027s maximum Health")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) magic damage")
+                        | sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) physical damage")
+                        | sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) true damage")
+                        | sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) plus {{ e4 }}% of the target")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) (+{{ a1 }}) physical damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                } else if (sanitizedContains(spell, "{{ e1 }} magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                } else if (sanitizedContains(spell, "{{ e4 }}% of the enemy\\u0027s maximum health (+{{ a1 }}) as magic damage")) {
+                    damage = getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) (+{{ a1 }}) physical damage")
+                        | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) (+{{ a1 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f1");
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f2 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f2");
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ f1 }}) physical damage")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f2");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a2 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a2");
+                    if (spell.getName().equals("The Equalizer")) {
+                        damage *= 5;
+                    }
+                } else if (sanitizedContains(spell, "{{ e4 }} (+{{ f2 }}) physical damage")) {
+                    damage = spell.getEffect().get(4).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f2");
+                } else if (sanitizedContains(spell, "{{ e4 }} (+{{ a2 }}) magic damage")) {
+                    damage = spell.getEffect().get(4).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e7 }} (+{{ a2 }}) magic damage")) {
+                    damage = spell.getEffect().get(7).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }})% of the target")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                } else if (sanitizedContains(spell, "{{ a1 }} plus {{ e2 }}% of all Magic and Physical Damage dealt to the target by Zed and his shadows while the mark was active")) {
+                    damage = getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e3 }} (+{{ a1 }}) ")) {
+                    damage = spell.getEffect().get(3).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ f1 }}) physical damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    damage += getScalingStat(spell.getVars(), "f1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a2 }}) (+{{ a1 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    damage += getScalingStat(spell.getVars(), "a2");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f2 }}) (+{{ f1 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "f2");
+                    damage += getScalingStat(spell.getVars(), "f1");
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) plus {{ e3 }}% of the target\\u0027s maximum Health as magic damage")
+                        | sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) plus 80% of his target")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ f1 }} (+{{ a1 }}) magic damage")) {
+                    damage = getScalingStat(spell.getVars(), "f1");
+                    damage += getScalingStat(spell.getVars(), "a1");
+                } else if (sanitizedContains(spell, "{{ e1 }} {{ f3 }} (+{{ a1 }}) area magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    damage += getScalingStat(spell.getVars(), "f3");
+                } else if (sanitizedContains(spell, "{{ e6 }} (+{{ a2 }}) magic damage")) {
+                    damage = spell.getEffect().get(6).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a2");
+                    if (spell.getName().equals("Tormented Soil")) {
+                        damage *= 5;
+                    }
+                } else if (sanitizedContains(spell, "{{ e1 }} (+{{ a1 }}) (+{{ f1 }}) magic damage")) {
+                    damage = spell.getEffect().get(1).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    damage += getScalingStat(spell.getVars(), "f1");
+                } else if (sanitizedContains(spell, "{{ e2 }} (+{{ a1 }}) (+{{ f1 }}) magic damage")) {
+                    damage = spell.getEffect().get(2).get(maxRankIndex);
+                    damage += getScalingStat(spell.getVars(), "a1");
+                    damage += getScalingStat(spell.getVars(), "f1");
                 }
-                return damage;
             }
-
-    
-
-    
+        }
+        return damage;
+    }
 
     private boolean sanitizedContains(ChampionSpell spell, String text) {
         if (spell.getSanitizedTooltip().toLowerCase().contains(text)) {
