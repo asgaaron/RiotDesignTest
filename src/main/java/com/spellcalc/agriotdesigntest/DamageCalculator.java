@@ -3,20 +3,17 @@ package com.spellcalc.agriotdesigntest;
 import com.robrua.orianna.type.dto.staticdata.ChampionSpell;
 import com.robrua.orianna.type.dto.staticdata.SpellVars;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import org.apache.commons.logging.Log;
 
 /**
  *
  * @author asgaaron
  */
 public class DamageCalculator {
-
-    private double abilityPower, baseAD, health, cDR, bonusAD, mana;
-    List<ChampionSpell> spells;
-
+    
+    private double abilityPower, baseAD, health, cDR, bonusAD, mana, bonusHealth, armor;
+    private final List<ChampionSpell> spells;
+    
     DamageCalculator(List<ChampionSpell> spells) {
         this.spells = spells;
         abilityPower = 0;
@@ -39,7 +36,7 @@ public class DamageCalculator {
         double highestDamage = 0;
 
         //parse through sanitized tooltip to find damage calculation
-        for (ChampionSpell spell : spells) {
+        for (ChampionSpell spell : getSpells()) {
             double damage = getSpellDamage(spell);
 
             //is this spell's damage the new highest?
@@ -52,11 +49,11 @@ public class DamageCalculator {
         Spell spell = new Spell(highest, highestDamage);
         return spell;
     }
-
-    private double getSpellDamage(ChampionSpell spell) {
+    
+    double getSpellDamage(ChampionSpell spell) {
         double damage = 0;
         int maxRankIndex = spell.getMaxrank() - 1;
-
+        
         if (checkEffectExist(spell)) {
             if (checkVarsExist(spell)) {
                 if (spell.getName().equals("Neurotoxin / Venomous Bite")
@@ -78,7 +75,7 @@ public class DamageCalculator {
                     damage += .02 * mana;
                     damage += getScalingStat(spell, "a1");
                     double stackDamage = spell.getEffect().get(3).get(maxRankIndex);
-                    stackDamage += getScalingStat(spell, "a1");
+                    stackDamage += getScalingStat(spell, "a1")/2;
                     stackDamage += .01 * mana;
                     stackDamage *= spell.getEffect().get(6).get(maxRankIndex);
                     damage += stackDamage;
@@ -87,6 +84,9 @@ public class DamageCalculator {
                         | sanitizedContains(spell, "dealing Magic Damage up to a total of {{ e1 }} (+{{ a1 }})")) {
                     damage = spell.getEffect().get(1).get(maxRankIndex);
                     damage += getScalingStat(spell, "a1");
+                    if (spell.getName().equals("Lay Waste")) {
+                        damage *= 2;
+                    }
                 } else if (sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) physical damage")
                         | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) true damage")
                         | sanitizedContains(spell, "{{ e1 }} (+{{ f1 }}) [6%")
@@ -297,11 +297,11 @@ public class DamageCalculator {
                 damage = spell.getEffect().get(1).get(maxRankIndex);
             } else if (spell.getName().equals("Hop / Crunch")) {
                 damage = spell.getEffect().get(1).get(maxRankIndex);
-                damage += .6 * health;
+                damage += .06 * health;
             } else if (spell.getName().equals("Infected Cleaver")) {
                 damage = spell.getEffect().get(1).get(maxRankIndex);
             } else if (spell.getName().equals("Furious Bite / Tunnel")) {
-                damage = spell.getEffect().get(1).get(maxRankIndex) * 2 * getTotalAD();
+                damage = spell.getEffect().get(1).get(maxRankIndex) *.01* 2 * getTotalAD();
             } else if (spell.getName().equals("Riposte")) {
                 damage = spell.getEffect().get(1).get(maxRankIndex);
                 damage += 1 * abilityPower;
@@ -327,14 +327,14 @@ public class DamageCalculator {
         }
         return damage;
     }
-
+    
     private boolean sanitizedContains(ChampionSpell spell, String text) {
         if (spell.getSanitizedTooltip().toLowerCase().contains(text)) {
             return true;
         }
         return false;
     }
-
+    
     private boolean checkVarsExist(ChampionSpell spell) {
         if (null == spell.getVars()) {
             //System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have a var field...scaling damages are missing!");
@@ -342,7 +342,7 @@ public class DamageCalculator {
         }
         return true;
     }
-
+    
     private boolean checkEffectExist(ChampionSpell spell) {
         if (null == spell.getEffect()) {
 //            System.out.println("Uh oh, it looks like " + spell.getName() + "'s base damages are missing!");
@@ -350,7 +350,7 @@ public class DamageCalculator {
         }
         return true;
     }
-
+    
     private double getScalingStat(ChampionSpell spell, String key) {
         boolean found = false;
         List<SpellVars> vars = spell.getVars();
@@ -365,8 +365,16 @@ public class DamageCalculator {
                         return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size() - 1) * getTotalAD();
                     case "health":
                         return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size() - 1) * health;
-                    default:
+                    case "@dynamic.attackdamage":
+                        return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size()- 1) * getTotalAD();
+                    case "bonushealth":
+                        return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size() - 1) * getBonusHealth();
+                    case "armor":
+                        return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size() - 1) * armor;
+                    default: {
+                        System.out.println("Couldn't find a scaling stat for " + spell.getName() + ". The key is: " + key);
                         return 0;
+                    }
                 }
             }
         }
@@ -379,36 +387,48 @@ public class DamageCalculator {
     }
 
     //need to update this with work from above
-    Spell calculateDPS() {
-        throw new UnsupportedOperationException();
-//        ChampionSpell highest = null;
-//        double highestDPS = 0;
-//        for (ChampionSpell spell : spells) {
-//            int maxRankIndex = spell.getMaxrank() - 1;
-//            double damage = spell.getEffect().get(0).get(spell.getMaxrank() - 1);
-//            if (null != spell.getVars().get(0).getLink()) {
-//                switch (spell.getVars().get(0).getLink()) {
-//                    case "spelldamage":
-//                        damage += spell.getVars().get(0).getCoeff().get(0) * abilityPower;
-//                        break;
-//                    case "attackdamage":
-//                        damage += spell.getVars().get(0).getCoeff().get(0) * (baseAD + bonusAD);
-//                        break;
-//                    case "bonusattackdamage":
-//                        damage += spell.getVars().get(0).getCoeff().get(0) * bonusAD;
-//                        break;
-//                }
-//            }
-//
-//            double damagePerTen = damage * 10 / spell.getCooldown().get(spell.getMaxrank() - 1);
-//
-//            if (damagePerTen > highestDPS) {
-//                highestDPS = damagePerTen;
-//                highest = spell;
-//            }
-//        }
-//        Spell spell = new Spell(highest, highestDPS);
-//        return spell;
+    Spell calculateDPS(int period) {
+        ChampionSpell highest = null;
+        double highestDPS = 0;
+        for (ChampionSpell spell : getSpells()) {
+            int maxRankIndex = spell.getMaxrank() - 1;
+            double damage = getSpellDamage(spell);
+            double damagePerTen = damage * (int) ((period / ((spell.getCooldown().get(spell.getMaxrank() - 1) * (1 - (cDR * .01))))) + .9999);
+            
+            if (spell.getName().equals("Dragon's Descent")) {
+                damagePerTen = damage * (int) ((period / ((80 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Force of Will")
+                    | spell.getName().equals("Rend")) {
+                damagePerTen = damage * (int) ((period / ((8 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Sweeping Blade")) {
+                damagePerTen = damage * (int) ((period / ((6 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Last Breath")) {
+                damagePerTen = damage * (int) ((period / ((30 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Noxious Trap")) {
+                damagePerTen = damage * (int) ((period / ((4 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Riposte")) {
+                damagePerTen = damage * (int) ((period / ((15 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Electro Harpoon")) {
+                damagePerTen = damage * 2 * (int) ((period / ((10 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Defile")) {
+                damagePerTen = damage * (int) ((period / ((1 * (1 - (cDR * .01))))) + 1);
+            } else if (spell.getName().equals("Shadow Dance")) {
+                damagePerTen = damage * 3 + (int) (((period - 3) / ((15 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Battle Roar")) {
+                damagePerTen = damage * (int) (((period) / ((12 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Bola Strike")
+                    | spell.getName().equals("Eye of Destruction")) {
+                damagePerTen = damage * (int) (((period) / ((10 * (1 - (cDR * .01))))) + .9999);
+            } else if (spell.getName().equals("Decimating Smash")) {
+                damagePerTen = damage * (int) ((period / (((spell.getCooldown().get(spell.getMaxrank() - 1) + 2) * (1 - (cDR * .01))))) + .9999);
+            }           
+            if (damagePerTen > highestDPS) {
+                highestDPS = damagePerTen;
+                highest = spell;
+            }
+        }
+        Spell spell = new Spell(highest, highestDPS);
+        return spell;
     }
 
     /**
@@ -500,5 +520,40 @@ public class DamageCalculator {
      */
     public void setMana(double mana) {
         this.mana = mana;
+    }
+
+    /**
+     * @return the bonusHealth
+     */
+    public double getBonusHealth() {
+        return bonusHealth;
+    }
+
+    /**
+     * @param bonusHealth the bonusHealth to set
+     */
+    public void setBonusHealth(double bonusHealth) {
+        this.bonusHealth = bonusHealth;
+    }
+
+    /**
+     * @return the armor
+     */
+    public double getArmor() {
+        return armor;
+    }
+
+    /**
+     * @param armor the armor to set
+     */
+    public void setArmor(double armor) {
+        this.armor = armor;
+    }
+
+    /**
+     * @return the spells
+     */
+    public List<ChampionSpell> getSpells() {
+        return spells;
     }
 }
