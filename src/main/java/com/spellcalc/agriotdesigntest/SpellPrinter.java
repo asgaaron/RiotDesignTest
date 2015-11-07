@@ -121,5 +121,5 @@ public class SpellPrinter {
         }
         printSpells(spells, "problemSpells.txt");
     }
-    
+
 }

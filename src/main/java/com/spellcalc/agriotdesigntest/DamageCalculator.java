@@ -10,10 +10,10 @@ import java.util.List;
  * @author asgaaron
  */
 public class DamageCalculator {
-    
+
     private double abilityPower, baseAD, health, cDR, bonusAD, mana, bonusHealth, armor;
     private final List<ChampionSpell> spells;
-    
+
     DamageCalculator(List<ChampionSpell> spells) {
         this.spells = spells;
         abilityPower = 0;
@@ -49,11 +49,11 @@ public class DamageCalculator {
         Spell spell = new Spell(highest, highestDamage);
         return spell;
     }
-    
+
     double getSpellDamage(ChampionSpell spell) {
         double damage = 0;
         int maxRankIndex = spell.getMaxrank() - 1;
-        
+
         if (checkEffectExist(spell)) {
             if (checkVarsExist(spell)) {
                 if (spell.getName().equals("Neurotoxin / Venomous Bite")
@@ -75,7 +75,7 @@ public class DamageCalculator {
                     damage += .02 * mana;
                     damage += getScalingStat(spell, "a1");
                     double stackDamage = spell.getEffect().get(3).get(maxRankIndex);
-                    stackDamage += getScalingStat(spell, "a1")/2;
+                    stackDamage += getScalingStat(spell, "a1") / 2;
                     stackDamage += .01 * mana;
                     stackDamage *= spell.getEffect().get(6).get(maxRankIndex);
                     damage += stackDamage;
@@ -301,7 +301,7 @@ public class DamageCalculator {
             } else if (spell.getName().equals("Infected Cleaver")) {
                 damage = spell.getEffect().get(1).get(maxRankIndex);
             } else if (spell.getName().equals("Furious Bite / Tunnel")) {
-                damage = spell.getEffect().get(1).get(maxRankIndex) *.01* 2 * getTotalAD();
+                damage = spell.getEffect().get(1).get(maxRankIndex) * .01 * 2 * getTotalAD();
             } else if (spell.getName().equals("Riposte")) {
                 damage = spell.getEffect().get(1).get(maxRankIndex);
                 damage += 1 * abilityPower;
@@ -327,14 +327,14 @@ public class DamageCalculator {
         }
         return damage;
     }
-    
+
     private boolean sanitizedContains(ChampionSpell spell, String text) {
         if (spell.getSanitizedTooltip().toLowerCase().contains(text)) {
             return true;
         }
         return false;
     }
-    
+
     private boolean checkVarsExist(ChampionSpell spell) {
         if (null == spell.getVars()) {
             //System.out.println("Uh oh, it looks like " + spell.getName() + " doesn't have a var field...scaling damages are missing!");
@@ -342,7 +342,7 @@ public class DamageCalculator {
         }
         return true;
     }
-    
+
     private boolean checkEffectExist(ChampionSpell spell) {
         if (null == spell.getEffect()) {
 //            System.out.println("Uh oh, it looks like " + spell.getName() + "'s base damages are missing!");
@@ -350,7 +350,7 @@ public class DamageCalculator {
         }
         return true;
     }
-    
+
     private double getScalingStat(ChampionSpell spell, String key) {
         boolean found = false;
         List<SpellVars> vars = spell.getVars();
@@ -366,7 +366,7 @@ public class DamageCalculator {
                     case "health":
                         return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size() - 1) * health;
                     case "@dynamic.attackdamage":
-                        return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size()- 1) * getTotalAD();
+                        return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size() - 1) * getTotalAD();
                     case "bonushealth":
                         return vars.get(i).getCoeff().get(vars.get(i).getCoeff().size() - 1) * getBonusHealth();
                     case "armor":
@@ -394,7 +394,7 @@ public class DamageCalculator {
             int maxRankIndex = spell.getMaxrank() - 1;
             double damage = getSpellDamage(spell);
             double damagePerTen = damage * (int) ((period / ((spell.getCooldown().get(spell.getMaxrank() - 1) * (1 - (cDR * .01))))) + .9999);
-            
+
             if (spell.getName().equals("Dragon's Descent")) {
                 damagePerTen = damage * (int) ((period / ((80 * (1 - (cDR * .01))))) + .9999);
             } else if (spell.getName().equals("Force of Will")
@@ -421,7 +421,7 @@ public class DamageCalculator {
                 damagePerTen = damage * (int) (((period) / ((10 * (1 - (cDR * .01))))) + .9999);
             } else if (spell.getName().equals("Decimating Smash")) {
                 damagePerTen = damage * (int) ((period / (((spell.getCooldown().get(spell.getMaxrank() - 1) + 2) * (1 - (cDR * .01))))) + .9999);
-            }           
+            }
             if (damagePerTen > highestDPS) {
                 highestDPS = damagePerTen;
                 highest = spell;

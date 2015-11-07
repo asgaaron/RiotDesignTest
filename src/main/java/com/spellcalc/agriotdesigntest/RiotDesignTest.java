@@ -84,7 +84,7 @@ public class RiotDesignTest {
                     case 2: {
                         Spell spell = calculator.calculateSingleHighest();
                         System.out.println("The highest damage single cast spell is: "
-                                + spell.getSpell().getName() + ", doing " + (int)spell.getDamage() + " damage!");
+                                + spell.getSpell().getName() + ", doing " + (int) spell.getDamage() + " damage!");
                         break;
                     }
                     case 3: {
@@ -93,7 +93,7 @@ public class RiotDesignTest {
                         System.out.println("");
                         Spell spell = calculator.calculateDPS(period);
                         System.out.println("With the provided stats, the highest dps spell over " + period + " seconds is: "
-                                + spell.getSpell().getName() + ", doing " + (int)spell.getDamage() + " damage!");
+                                + spell.getSpell().getName() + ", doing " + (int) spell.getDamage() + " damage!");
                         break;
                     }
                     case 4: {
@@ -107,11 +107,11 @@ public class RiotDesignTest {
                                 damage = calculator.getSpellDamage(spell);
                             }
                         }
-                        if (damage==0) {
+                        if (damage == 0) {
                             System.out.println("I don't think you entered that  spell name correctly...try again!");
                         }
                         System.out.println("With the provided stats, "
-                                + spellName + " will do: " + (int)damage + " damage!");
+                                + spellName + " will do: " + (int) damage + " damage!");
                         break;
                     }
                     case 5: {

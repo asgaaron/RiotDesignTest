@@ -1,17 +1,27 @@
-Hi! Welcome to my spell calculator, a project to practice leveraging RIOT's 
-public API.
+Hi! My name is Aaron Gardner, aka Feihu from NA! Welcome to my spell calculator, 
+a project to practice leveraging RIOT's public API. I hope you like it!
+If you have questions, please feel free to ask me on the LoL client.
+
+Your API key must be in a text file at the project's root directory entitled 
+'apikey'. Otherwise, replace line 155 of RiotDesignTest.java with:
+BaseRiotAPI.setAPIKey("YOUR-API-KEY-HERE");
+And place your API key into the field.
 
 This calculator is pretty crude at this point. 
-Currently, it's main function is to calculate the highest damage single-cast 
-spell at varying levels of AD, AP, and health.
 Spells that enhance auto-attacks, such as Xin's Q are not considered. Spells 
 that do not deal damage are not considered.
 
-However, the calculator does not know anything about its target or the current 
-state of the champion casting the spell. Things like %health, current health are
-not taken into calculation.
+The calculator does not know anything about its target or the current state of 
+the champion casting the spell. Things like %health, current health are not 
+taken into calculation.
 
-Edit:
+Notes on functionality:
+Spell damages are always calculated at their highest possible values. For 
+example, Taric's Dazzle is calculated as if he casted it from 0 range, 
+Morgana's Tormented Soil is calculated as if the target has 1% health, Sion's 
+Decimating Smash uses the fully charged spell damage, and Kassadin's Riftwalk 
+is on its highest stack.
+Updates since 1.0:
 
 Add functionality for calculating DPS -- DONE!
 // Currently, CDR is a little useless. A 'Calculate DPS' function could 
@@ -22,15 +32,8 @@ Add functionality to calculate the damage of a specified spell -- DONE!
 // Gets the name of a spell from the user, then calculates spell damage and 
 // prints to the screen
 
-Notes:
-Spell damages are always calculated at their highest possible values. For 
-example, Taric's Dazzle is calculated as if he casted it from 0 range, 
-Morgana's Tormented Soil is calculated as if the target has 1% health, Sion's 
-Decimating Smash uses the fully charged spell damage, and Kassadin's Riftwalk 
-is on its highest stack.
-
 All of Lux's spells are missing effect fields from the Riot API, base damages 
-will have to be hard-coded.
+have been hard-coded.
 
 Extra damage from champion's passives (e.g. Lux and Velkoz's passive abilites) 
 is not taken into consideration.
