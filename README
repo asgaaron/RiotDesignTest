@@ -11,10 +11,21 @@ However, the calculator does not know anything about its target or the current
 state of the champion casting the spell. Things like %health, current health are
 not taken into calculation.
 
+Edit:
+
+Add functionality for calculating DPS -- DONE!
+// Currently, CDR is a little useless. A 'Calculate DPS' function could 
+// calculate damage done over user-defined periods of time, taking spell 
+// cooldown into consideration.
+
+Add functionality to calculate the damage of a specified spell -- DONE!
+// Gets the name of a spell from the user, then calculates spell damage and 
+// prints to the screen
+
 Notes:
 Spell damages are always calculated at their highest possible values. For 
 example, Taric's Dazzle is calculated as if he casted it from 0 range, 
-Morgana's Tormented Soil is calculated as if the target has 1% health,Sion's 
+Morgana's Tormented Soil is calculated as if the target has 1% health, Sion's 
 Decimating Smash uses the fully charged spell damage, and Kassadin's Riftwalk 
 is on its highest stack.
 
@@ -45,7 +56,3 @@ Automatic parsing of sanitized tooltip
 // Currently, the method of obtaining spell damage is pretty brute force. Will 
 // require a lot of maintenance in the future. I would rather create a way to 
 // parse this automatically.
-
-Add functionality to calculate the damage of a specified spell
-// Gets the name of a spell from the user, then calculates spell damage and 
-// prints to the screen
