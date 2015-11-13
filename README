@@ -58,7 +58,7 @@ Ability to ask about context-specific spells
 Automatic parsing of sanitized tooltip
 // Currently, the method of obtaining spell damage is pretty brute force. Will 
 // require a lot of maintenance in the future. I would rather create a way to 
-// parse this automatically.
+// parse this automatically. Looking into Mustache for this.
 
 Make specific spell calculation better
 // The calculator is not very good at finding spells if the name is slightly off.
